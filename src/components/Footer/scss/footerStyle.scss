@@ -1,0 +1,24 @@
+@import "../../style/base";
+
+.footer {
+  width: 100%;
+  font-size: 1.2rem;
+  border-top: 1px solid #333;
+
+  > div {
+    width: 100%;
+    margin: 0 auto;
+    ul {
+      @extend .display_flex;
+      @extend .alignItems_center;
+      width: 100%;
+      margin-bottom: .5rem;
+
+      li {
+        color: #3377aa;
+        margin-right: 2rem;
+        cursor: pointer;
+      }
+    }
+  }
+}

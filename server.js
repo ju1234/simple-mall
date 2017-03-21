@@ -1,77 +1,83 @@
 /**
- * 文件说明: server
- * 详细描述:
- * 创建者: ju1234
- * 创建时间: 17.3.14
- * 变更记录:
+ * Created by Yeapoo on 2017/03/20.
  */
-
-
-
-var Koa = require('koa'),
+var express = require('express'),
+  webpack = require('webpack'),
   path = require('path'),
-  staticPath = require('koa-static'),
-  koaBody = require('koa-body'),
-  ejs = require('koa-ejs'),
-  router = require('./router'),
-  session = require('koa-session2');
+  routes = require('./routes'),
+  colors = require('colors'),
+  bodyParser = require('body-parser');
 
-var app = new Koa(),
-  port = 8888;
-
-// 静态文件根目录
-app.use(staticPath(path.join(__dirname + '/static')));
-// 接受post数据中间件
-app.use(koaBody({multipart: true}));
-
-// 设置session
-app.use(session({
-  key: "SESSIONID",   //default "koa:sess"
-  maxAge: 10000000000  //设置session超时时间
-}));
-
-ejs(app,{
-  root: path.join(__dirname,'./src/view'),
-  layout: 'template',
-  viewExt: 'html',
-  cache: false,
-  debug: true
+colors.setTheme({
+  silly: 'rainbow',
+  input: 'grey',
+  verbose: 'cyan',
+  prompt: 'grey',
+  info: 'green',
+  data: 'grey',
+  help: 'cyan',
+  warn: 'yellow',
+  debug: 'blue',
+  error: 'red'
 });
 
-// 解决跨域
-app.use(async(ctx, next) => {
-  await next();
-  ctx.response.set('Access-Control-Allow-Origin', 'http://192.168.0.112:8888');
-});
+var app = express();
+var isDeveloping = process.env.NODE_ENV === 'development';
 
-app.use(function (ctx, next) {
-  ctx.state = ctx.state || {};
-  ctx.state.now = new Date();
-  ctx.state.ip = ctx.ip;
-  ctx.state.version = '2.0.0';
-  return next();
-});
+var port = isDeveloping ? 8888 : 80;
 
-app.use(async (ctx) => {
-  await ctx.render('index',{
-    user: ['hello','hello','hello']
-  })
-});
+app.use('/', express.static(path.join(__dirname + '/static')));
 
-// 路由配置
-app.use(router.routes()).use(router.allowedMethods());
-
-// 服务监听端口
-app.listen(port);
-console.log(`server start at port ${port}`);
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 //
-// function cookieToObj(cookie) {
-//   var obj = {};
-//   cookie = cookie.split(';');
-//   cookie.map((item) => {
-//     item = item.split('=');
-//     obj[item[0].trim()] = item[1].trim();
-//   });
-//
-//   return obj;
-// }
+// app.get('/',(req,res) => {
+//   res.sendfile(path.resolve(__dirname, 'static/dist', 'index.html'))
+// });
+
+if(isDeveloping){
+  console.log('开发模式启动'.info);
+  var config = require('./webpack.config/webpack.config.dev');
+  var compiler = webpack(config);
+  devMiddleWare = require('webpack-dev-middleware')(compiler, {
+    publicPath: '/dist',
+    stats: {
+      colors: true,
+      modules: false,
+      children: false,
+      chunks: false,
+      chunkModules: false
+    }
+  });
+  app.use(devMiddleWare);
+  app.use(require('webpack-hot-middleware')(compiler));
+  var mfs = devMiddleWare.fileSystem;
+  var file = path.join(config.output.path, 'index.html');
+  app.get('*', function(req, res,next) {
+    devMiddleWare.waitUntilValid(function(){
+      var html = mfs.readFileSync(file);
+      res.end(html)
+    });
+    next();
+  });
+  app.post('/api/login',(req,res,next) => {
+    console.log(req.body);
+    res.json(JSON.stringify({
+      mag: 'asd'
+    }));
+    next();
+  });
+  console.log('路由挂载完成'.info)
+
+}else {
+  console.log("生产模式启动".info);
+  routes(app);
+}
+
+app.listen(port,(err,success) => {
+  if(err){
+    console.log(err)
+  }else {
+    console.log(`server start as port ${port}`.info)
+  }
+});
