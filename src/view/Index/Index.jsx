@@ -8,12 +8,12 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
 //===================================================
-import Header from '../Header/Header.jsx'
+import Header from '../../components/Header/Header.jsx'
 //===================================================
 import layout from'./scss/layout.scss'
 
 
-class Layout extends Component{
+class Index extends Component{
   constructor(props){
     super(props)
   }
@@ -36,5 +36,5 @@ function mapStateToProp(store) {
 
 
 // export default Layout;
-export default connect(mapStateToProp)(Layout);
+export default connect(mapStateToProp)(Index);
 // module.exports =  connect(mapStateToProp)(Layout);

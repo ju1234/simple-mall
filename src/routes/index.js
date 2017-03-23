@@ -12,22 +12,17 @@ import store from '../redux/store'
 
 const rootRoute = {
   path: '/',
-  getComponent(nextState, cb) {
-    require.ensure([], (require) => {
-      cb(null, require('../components/Layout/Layout.jsx').default)
-    }, 'index')
-    // import('../components/Layout/Layout.jsx')
-    //   .then( module => {
-    //     cb(null,module.default);
-    //   })
-  }
-  // childRoutes: [
-  //   require('./ours.route.js'),
-  //   require('./work.route.js'),
-  //   require('./contact.route.js')
-  // ]
+  indexRoute: {
+    getComponent(location, cb){
+      require.ensure([], (require) => {
+        cb(null, require('../view/Index/Index.jsx').default)
+      }, 'index')
+    },
+  },
+  childRoutes: [
+    require('./contact.route.js')
+  ]
 };
-const a =2;
 
 
 

@@ -59,7 +59,5 @@ module.exports = (app,mfs,file) => {
       .catch(err => {
         console.error(err)
       });
-
-
   });
 };
