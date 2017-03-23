@@ -20,4 +20,4 @@ class Ours extends Component{
 }
 
 export default Ours;
-module.exports = Ours;
+// module.exports = Ours;

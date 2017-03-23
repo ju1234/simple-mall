@@ -33,7 +33,6 @@ class BookList extends Component {
   }
 
   render() {
-    console.log(this.props.bookList);
 
     var content = this.props.bookList ? this.props.bookList.map((book,key) => {
         return <BookIntro {...book} key={key}/>

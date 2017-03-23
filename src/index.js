@@ -13,7 +13,4 @@ import routes from './routes';
 
 
 
-import Sider from './components/MenuList/MenuList.jsx'
-
-// render(<Sider/>,document.getElementById('root'));
 render(routes,document.getElementById('root'));

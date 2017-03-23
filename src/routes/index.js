@@ -14,15 +14,22 @@ const rootRoute = {
   path: '/',
   getComponent(nextState, cb) {
     require.ensure([], (require) => {
-      cb(null, require('../components/Layout/Layout.jsx'))
+      cb(null, require('../components/Layout/Layout.jsx').default)
     }, 'index')
-  },
-  childRoutes: [
-    require('./ours.route.js'),
-    require('./work.route.js'),
-    require('./contact.route.js')
-  ]
+    // import('../components/Layout/Layout.jsx')
+    //   .then( module => {
+    //     cb(null,module.default);
+    //   })
+  }
+  // childRoutes: [
+  //   require('./ours.route.js'),
+  //   require('./work.route.js'),
+  //   require('./contact.route.js')
+  // ]
 };
+const a =2;
+
+
 
 
 const routes = (

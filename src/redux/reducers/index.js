@@ -7,17 +7,14 @@
 
 
 import {combineReducers} from 'redux';
+//===============================================
 
 
 
-import layoutReducer from './layoutReducer.js'
-import bookListReducer from './bookListReducer.js'
-import menulist from './menulist.js'
+import headerReducer from './headerReducer.js'
 
 const reducers = combineReducers({
-  layout: layoutReducer,
-  bookList: bookListReducer,
-  menuList: menulist
+  header: headerReducer
 });
 
 

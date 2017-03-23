@@ -113,10 +113,8 @@ button {
   outline: none;
 }
 
-.red{
-  color: #f00;
+html, body {
+  font-size: 20px;
 }
 
-.cue{
-  color: #f60;
-}
+

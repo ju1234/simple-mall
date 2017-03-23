@@ -2,14 +2,15 @@
  * 文件说明： 布局组件
  * 详细描述：
  * 创建者： JU
- * 时间： 17.3.2
+ * 时间： 17.3.22
  */
 
 import React,{Component} from 'react';
-
 import {connect} from 'react-redux';
-import MenuList from '../MenuList/MenuList.jsx';
-import layout from'./layout.scss'
+//===================================================
+import Header from '../Header/Header.jsx'
+//===================================================
+import layout from'./scss/layout.scss'
 
 
 class Layout extends Component{
@@ -19,7 +20,7 @@ class Layout extends Component{
   render(){
     return (
       <div className={layout.layout}>
-        <MenuList/>
+        <Header/>
         {this.props.children}
       </div>
     )
@@ -36,4 +37,4 @@ function mapStateToProp(store) {
 
 // export default Layout;
 export default connect(mapStateToProp)(Layout);
-module.exports =  connect(mapStateToProp)(Layout);
+// module.exports =  connect(mapStateToProp)(Layout);

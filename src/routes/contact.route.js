@@ -6,11 +6,10 @@ module.exports = {
   path: 'contact',
   getComponent(nextState, cb) {
     require.ensure([], (require) => {
-      cb(null, require('../components/contact.jsx'))
+      cb(null, require('../components/contact.jsx').default)
     }, 'contact')
   }
 };
-
 
 
 // module.exports = {
@@ -19,9 +18,6 @@ module.exports = {
 //     import('../components/contact.jsx')
 //       .then( module => {
 //         cb(null,module.default)
-//       })
-//       .catch(err => {
-//         console.log(err)
 //       })
 //   }
 // };

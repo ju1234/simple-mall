@@ -19,15 +19,9 @@ productionConfig.plugins.push(
     output: {
       comments: false
     }
-  }),
-  // extract vendor chunks
-  new webpack.optimize.CommonsChunkPlugin({
-    name: 'common',
-    filename: 'common.[hash:8].js',
-    minChunks: function (module, count) {
-      return module.resource && module.resource.indexOf(path.resolve(__dirname, 'src')) === -1;
-    }
   })
+  // extract vendor chunks
+
 );
 
 module.exports = productionConfig;

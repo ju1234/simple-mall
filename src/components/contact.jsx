@@ -24,6 +24,7 @@ class Contact extends Component{
 
 
   render(){
+    console.log('render')
     return (
       <div>
         <input type="text" placeholder="请输入用户名" ref={username => {return this.username = username}}/>
@@ -33,6 +34,6 @@ class Contact extends Component{
     )
   }
 }
-
+console.log('has module');
 export default Contact;
-module.exports = Contact;
+// module.exports = Contact;
