@@ -10,7 +10,8 @@ import * as actionTypes from '../actionTypes';
 
 
 const init = {
-  canBack: true
+  canBack: true,
+  cancel: true
 };
 
 export default function headerReducer(state = Immutable.fromJS(init), action) {

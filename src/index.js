@@ -12,11 +12,12 @@ import routes from './routes';
 
 window.onload = (function () {
   var isRetina = window.devicePixelRatio === 2 ? 1 :2;
-  var screenWidth = window.screen.width ;
+  // var screenWidth = window.screen.width ;
+  var screenWidth = window.innerWidth ;
   // console.log()
   console.log(navigator.userAgent);
-  document.getElementById('roota').innerHTML = navigator.userAgent + 'and'
-  document.getElementById('roota').style.padding = '50px';
+  document.getElementById('roota').innerHTML = navigator.userAgent + 'and';
+  document.getElementById('roota').style.padding = '100px';
   document.getElementsByTagName('html')[0].style['fontSize'] = `${screenWidth  / 10}px` ;
 })();
 
