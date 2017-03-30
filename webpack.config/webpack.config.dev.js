@@ -9,6 +9,8 @@ var baseConfig = require('./webpack.config'),
   WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin'),
   hotMiddlewareScript = 'webpack-hot-middleware/client?reload=true';
 
+
+
 var developingConfig = baseConfig;
 
 
@@ -17,7 +19,7 @@ developingConfig.entry.unshift(hotMiddlewareScript)
 developingConfig.devtool = 'source-map';
 developingConfig.plugins.push(
   new webpack.DefinePlugin({
-    "process.dev.NODE_ENV": JSON.stringify('development')
+    "process.env.NODE_ENV": JSON.stringify('development')
   }),
   new webpack.HotModuleReplacementPlugin(),
   new CaseSensitivePathsPlugin(),

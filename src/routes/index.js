@@ -8,29 +8,43 @@ import React from 'react';
 import {Router, Route, browserHistory, IndexRoute} from 'react-router';
 import {Provider} from 'react-redux';
 
-import store from '../redux/store'
 
-const rootRoute = {
-  path: '/',
-  indexRoute: {
-    getComponent(location, cb){
-      require.ensure([], (require) => {
-        cb(null, require('../view/Index/Index.jsx').default)
-      }, 'index')
-    },
-  },
-  childRoutes: [
-    require('./contact.route.js')
-  ]
-};
-
-
+// const rootRoute = {
+//   path: '/',
+//   getComponent(nextState, cb) {
+//     require.ensure([], (require) => {
+//       cb(null, require('../components/Layout/Layout').default)
+//     }, 'index')
+//     // import('../components/Skeleton/Skeleton')
+//     //   .then( module => {
+//     //     cb(null,module.default);
+//     //   })
+//   },
+//   // getComponent(nextState, cb) {
+//   //   require.ensure([], (require) => {
+//   //     cb(null, require('../components/Layout/Layout').default)
+//   //   }, 'index')
+//   //   // import('../components/Layout/Layout')
+//   //   //   .then( module => {
+//   //   //     cb(null,module.default);
+//   //   //   })
+//   // },
+//   childRoutes: [
+//     // require('./book.route.js'),
+//     // require('./test.route.js')
+//   ]
+// };
 
 
 const routes = (
-  <Provider store={store}>
-    <Router history={browserHistory} routes={rootRoute} />
-  </Provider>
+  <Router history={browserHistory}>
+    <Route path='/' getComponent={(location, cb) => {
+      require.ensure([], (require) => {
+        cb(null, require('../view/Index/Index').default)
+      }, 'index')
+    }}>
+    </Route>
+  </Router>
 );
 
 export default routes;
