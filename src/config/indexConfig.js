@@ -1,9 +1,9 @@
 /**
  * 文件说明： 主页配置文件
  * 详细描述：
-* 创建者： JU
-* 时间： 17.4.6
-*/
+ * 创建者： JU
+ * 时间： 17.4.6
+ */
 
 export default {
   banners: [
@@ -24,56 +24,57 @@ export default {
       alt: '广告'
     },
   ],
+
   classifyNav: [
     {
       name: '女装',
       url: '',
-      src: ''
+      src: '/images/classifyIcon/frock.jpg'
     },
     {
       name: '男装',
       url: '',
-      src: ''
+      src: '/images/classifyIcon/manClothing.jpg'
     },
     {
       name: '女鞋',
       url: '',
-      src: ''
+      src: '/images/classifyIcon/womenShoes.jpg'
     },
     {
       name: '男鞋',
       url: '',
-      src: ''
+      src: '/images/classifyIcon/manShoes.jpg'
     },
     {
       name: '箱包',
       url: '',
-      src: ''
+      src: '/images/classifyIcon/luggage.jpg'
     },
     {
       name: '化妆品',
       url: '',
-      src: ''
+      src: '/images/classifyIcon/toiletry.jpg'
     },
     {
       name: '零食',
       url: '',
-      src: ''
+      src: '/images/classifyIcon/snacks.jpg'
     },
     {
       name: '家电',
       url: '',
-      src: ''
+      src: '/images/classifyIcon/appliance.jpg'
     },
     {
       name: '图书',
       url: '',
-      src: ''
+      src: '/images/classifyIcon/books.jpg'
     },
     {
       name: '酒水',
       url: '',
-      src: ''
+      src: '/images/classifyIcon/wine.jpg'
     },
   ]
 }

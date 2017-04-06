@@ -20,16 +20,17 @@ class Classify extends Component {
     super(props)
   }
 
-
   render() {
     return (
       <div className={classifyStyle.classifyNav}>
         {this.props.classifyNav.map((classify, index) => {
           return (
-            <div key={index}>
-              <img src="/images/38640.jpg" alt=""/>
-              <p>{classify.name}</p>
-            </div>
+            <Link to={classify.url || '/'} key={index}>
+              <div>
+                <img src={classify.src || '/images/38640.jpg'} alt=""/>
+                <p>{classify.name}</p>
+              </div>
+            </Link>
           )
         })}
       </div>

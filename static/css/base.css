@@ -29,9 +29,9 @@ a {
   color: #333
 }
 
-a:hover {
-  color: #F60
-}
+/*a:hover {*/
+/*color: #F60*/
+/*}*/
 
 a:focus {
   outline-style: none;
