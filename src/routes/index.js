@@ -6,7 +6,6 @@
  */
 import React from 'react';
 import {Router, Route, browserHistory, IndexRoute} from 'react-router';
-import {Provider} from 'react-redux';
 
 
 // const rootRoute = {
@@ -40,7 +39,7 @@ const routes = (
   <Router history={browserHistory}>
     <Route path='/' getComponent={(location, cb) => {
       require.ensure([], (require) => {
-        cb(null, require('../view/Index/Index').default)
+        cb(null, require('../View/Index/Index').default)
       }, 'index')
     }}>
     </Route>

@@ -1,5 +1,8 @@
 /**
- * Created by Yeapoo on 2017/03/20.
+ * 文件说明： server
+ * 详细描述：
+ * 创建者： JU
+ * 时间： 17.3.20
  */
 var express = require('express'),
   webpack = require('webpack'),

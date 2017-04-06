@@ -16,15 +16,13 @@ class Header extends Component {
   }
 
   render() {
-    const {canBack,cancel} = this.props.header;
-    const backBtn = canBack ? <button type="button"></button> : null;
-    const cancelBtn = cancel? <button type="button">取消</button> : null;
-    console.log(this.props.header)
+    // const {canBack,cancel} = this.props.header;
+    // const backBtn = canBack ? <button type="button"></button> : null;
+    // const cancelBtn = cancel? <button type="button">取消</button> : null;
+    console.log(this.props.header);
     return (
       <header className={headerStyle.header}>
-        {backBtn}
-        <input type="text"/>
-        {cancelBtn}
+        {this.props.children || this.props.header}
       </header>
     )
   }

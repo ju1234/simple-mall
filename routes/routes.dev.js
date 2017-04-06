@@ -4,15 +4,15 @@
 
 var path = require('path');
 var axios = require('axios');
-var routesPath = require('../src/tools/routePaths.js');
+var routesPaths = require('../src/tools/routePaths.js');
 
 
 
 
 module.exports = (app,mfs,file) => {
   let urlArray = [];
-  for(let key in routesPath){
-    urlArray.push(routesPath[key])
+  for(let key in routesPaths){
+    urlArray.push(routesPaths[key])
   }
 
 

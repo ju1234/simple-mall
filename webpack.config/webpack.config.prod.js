@@ -1,3 +1,11 @@
+/**
+ * 文件说明： webpack production
+ * 详细描述：
+ * 创建者： JU
+ * 时间： 17.3.20
+ */
+
+
 var baseConfig = require('./webpack.config'),
   paths = require('../paths.js'),
   webpack = require('webpack'),

@@ -1,15 +1,18 @@
 @import "../../style/base";
 
 .header {
-  @extend .display_flex;
-  @extend .justifyContent_spaceBetween;
-  @extend .alignItems_center;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 1.5rem;
   box-shadow:  0 2px 3px #ccc;
   position: fixed;
   padding: 0 5%;
+  line-height: 1.5rem;
+  text-align: center;
+  background: #fff;
+
   button{
     &:first-child{
       margin-right: .15rem;
@@ -23,7 +26,6 @@
     width: .8rem;
     height: .8rem;
     line-height: .3rem;
-
   }
 
   input {
