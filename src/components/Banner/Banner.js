@@ -22,12 +22,19 @@ class Banner extends Component{
   }
 
   render(){
+    console.log(this.props)
     return(
       <div className={bannerStlye.banner}>
        <ul id="banner">
-         <li></li>
-         <li></li>
-         <li></li>
+         {
+           this.props.banners.map( (banner,index) => {
+             return (
+               <li key={index}>
+                 <img src={banner.src} alt={banner.alt}/>
+               </li>
+             )
+           })
+         }
        </ul>
       </div>
     )

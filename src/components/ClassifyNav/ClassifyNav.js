@@ -20,20 +20,15 @@ class Classify extends Component {
     super(props)
   }
 
-  state = {
-    classify: [
-      '女装','男装','女鞋','男鞋','箱包','化妆品','零食','家电','图书','茶酒'
-    ]
-  };
 
   render() {
     return (
       <div className={classifyStyle.classifyNav}>
-        {this.state.classify.map((classify, index) => {
+        {this.props.classifyNav.map((classify, index) => {
           return (
             <div key={index}>
               <img src="/images/38640.jpg" alt=""/>
-              <p>{classify}</p>
+              <p>{classify.name}</p>
             </div>
           )
         })}

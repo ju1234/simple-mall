@@ -19,7 +19,6 @@ class Header extends Component {
     // const {canBack,cancel} = this.props.header;
     // const backBtn = canBack ? <button type="button"></button> : null;
     // const cancelBtn = cancel? <button type="button">取消</button> : null;
-    console.log(this.props.header);
     return (
       <header className={headerStyle.header}>
         {this.props.children || this.props.header}

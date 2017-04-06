@@ -10,17 +10,12 @@
     >li{
       width: 100%;
       height: 100%;
-      &:first-child{
-        background: red;
 
-        & + li{
-          background: blue;
-
-          & + li{
-            background: black;
-          }
-        }
+      img{
+        width: 100%;
+        height: 100%;
       }
+
     }
   }
 }

@@ -1,6 +1,6 @@
 var path = require('path');
 const axios = require('axios')
-var routesPath = require('../src/tools/routePaths.js');
+var routesPath = require('./routePaths.js');
 
 module.exports = function (app, cb) {
   let urlArray = [];

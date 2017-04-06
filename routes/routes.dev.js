@@ -4,7 +4,7 @@
 
 var path = require('path');
 var axios = require('axios');
-var routesPaths = require('../src/tools/routePaths.js');
+var routesPaths = require('../src/config/routePaths.js');
 
 
 
