@@ -12,14 +12,12 @@ import TouchSlider from 'touchslider';
 //==========================================================
 
 
-
 //===========================================================
 import bannerStlye from './scss/banner.scss';
 
 class Banner extends Component{
 
   componentDidMount(){
-    console.log(TouchSlider);
     new TouchSlider('banner',{duration:1000, direction:0, interval:3000, fullsize:true})
   }
 

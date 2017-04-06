@@ -13,8 +13,10 @@ import Header from '../../components/Header/Header.jsx';
 import Container from '../../components/Container/Container.js';
 // 广告轮播组件
 import Banner from '../../components/Banner/Banner.js';
-// 分类展示组件
-import Classify from '../../components/Classify/Classify.js';
+// 分类导航组件
+import ClassifyNav from '../../components/ClassifyNav/ClassifyNav.js';
+// 分类推荐组件
+import ClassifyHot from '../../components/ClassifyHot/ClassifyHot.js'
 //===================================================
 import indexStyle from'./scss/index.scss'
 import Footer from "../../components/Footer/Footer";
@@ -33,8 +35,17 @@ class Index extends Component{
         </Header>
         <Container>
           <Banner/>
-
-          <Classify/>
+          <ClassifyNav/>
+          <ClassifyHot/>
+          <ClassifyHot/>
+          <ClassifyHot/>
+          <ClassifyHot/>
+          <ClassifyHot/>
+          <ClassifyHot/>
+          <ClassifyHot/>
+          <ClassifyHot/>
+          <ClassifyHot/>
+          <ClassifyHot/>
         </Container>
         <Footer/>
       </div>
