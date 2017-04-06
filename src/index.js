@@ -10,7 +10,7 @@ import {render} from  'react-dom';
 import store from './redux/store'
 import {Provider} from 'react-redux';
 import routes from './routes';
-import './middleware/remConfig.js';
+import './middleware/init.js';
 
 
 

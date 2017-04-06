@@ -1,3 +1,8 @@
 .container{
   padding-top: 1.5rem;
+  max-width: 100%;
+
+  >div{
+    border-bottom: .375rem solid #eee;
+  }
 }

@@ -1,0 +1,29 @@
+.classify{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+
+  >div{
+    width: 1.813rem;
+    height: 2.125rem;
+    padding: .266rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    img{
+      width: 1.066rem;
+      height: 1.066rem;
+      background: red;
+      border-width: 0;
+      border-radius: 100%;
+    }
+
+    p{
+      text-align: center;
+    }
+  }
+}
