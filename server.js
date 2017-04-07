@@ -9,7 +9,8 @@ var express = require('express'),
   path = require('path'),
   colors = require('colors'),
   bodyParser = require('body-parser'),
-  axios = require('axios');
+  axios = require('axios'),
+  routeBase = require('./routes/routes.base.js');
 
 colors.setTheme({
   silly: 'rainbow',
@@ -27,12 +28,13 @@ colors.setTheme({
 var app = express();
 var isDeveloping = process.env.NODE_ENV === 'development';
 
-var port = isDeveloping ? 8888 : 80;
+var port = isDeveloping ? 8888 : 9999;
 
 app.use('/', express.static(path.join(__dirname + '/static')));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+
 //
 // app.get('/',(req,res) => {
 //   res.sendfile(path.resolve(__dirname, 'static/dist', 'index.html'))
@@ -71,6 +73,9 @@ if (isDeveloping) {
 
   routes(app);
 }
+
+
+routeBase(app);
 
 app.listen(port, (err, success) => {
   if (err) {

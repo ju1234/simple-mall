@@ -20,7 +20,7 @@ import ClassifyNav from '../../components/ClassifyNav/ClassifyNav.js';
 import ClassifyHot from '../../components/ClassifyHot/ClassifyHot.js'
 //===================================================
 import indexStyle from './scss/index.scss'
-import indexConfig from '../../config/indexConfig.js';
+import indexConfig from '../../mock/indexConfig.js';
 
 class Index extends Component {
   constructor(props) {
