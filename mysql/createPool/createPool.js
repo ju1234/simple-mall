@@ -42,5 +42,4 @@ function mysql(sql) {
   })
 }
 
-
 module.exports = mysql;

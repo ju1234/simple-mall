@@ -10,7 +10,7 @@ var express = require('express'),
   colors = require('colors'),
   bodyParser = require('body-parser'),
   axios = require('axios'),
-  routeBase = require('./routes/routes.base.js');
+  interfaceConf = require('./interface');
 
 colors.setTheme({
   silly: 'rainbow',
@@ -75,7 +75,7 @@ if (isDeveloping) {
 }
 
 
-routeBase(app);
+interfaceConf(app);
 
 app.listen(port, (err, success) => {
   if (err) {
