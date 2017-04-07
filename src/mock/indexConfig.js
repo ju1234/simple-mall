@@ -27,53 +27,63 @@ export default {
 
   classifyNav: [
     {
+      id: 1,
       name: '女装',
-      url: '',
+      url: '/classify/frock',
       src: '/images/classifyIcon/frock.jpg'
     },
     {
+      id: 2,
       name: '男装',
-      url: '',
+      url: '/classify/manClothing',
       src: '/images/classifyIcon/manClothing.jpg'
     },
     {
+      id: 3,
       name: '女鞋',
-      url: '',
+      url: '/classify/womenShoes',
       src: '/images/classifyIcon/womenShoes.jpg'
     },
     {
+      id: 4,
       name: '男鞋',
-      url: '',
+      url: '/classify/manShoes',
       src: '/images/classifyIcon/manShoes.jpg'
     },
     {
+      id: 5,
       name: '箱包',
-      url: '',
+      url: '/classify/luggage',
       src: '/images/classifyIcon/luggage.jpg'
     },
     {
+      id: 6,
       name: '化妆品',
-      url: '',
+      url: '/classify/toiletry',
       src: '/images/classifyIcon/toiletry.jpg'
     },
     {
+      id: 7,
       name: '零食',
-      url: '',
+      url: '/classify/snack',
       src: '/images/classifyIcon/snacks.jpg'
     },
     {
+      id: 8,
       name: '家电',
-      url: '',
+      url: '/classify/appliance',
       src: '/images/classifyIcon/appliance.jpg'
     },
     {
+      id: 9,
       name: '图书',
-      url: '',
+      url: '/classify/books',
       src: '/images/classifyIcon/books.jpg'
     },
     {
+      id: 10,
       name: '酒水',
-      url: '',
+      url: '/classify/wine',
       src: '/images/classifyIcon/wine.jpg'
     },
   ]

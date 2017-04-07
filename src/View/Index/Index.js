@@ -40,7 +40,7 @@ class Index extends Component {
         </Header>
         <Container>
           <Banner banners={banners}/>
-          <ClassifyNav classifyNav={classifyNav}/>
+          <ClassifyNav/>
           <ClassifyHot/>
           <ClassifyHot/>
           <ClassifyHot/>

@@ -11,7 +11,18 @@
   > div {
     width: 2.5rem;
     height: 100%;
-    line-height: 1.5rem;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    img{
+      width: .8rem;
+      height: .8rem;
+    }
   }
+}
+
+
+.active{
+  color: #f60;
 }

@@ -30,7 +30,7 @@ function select(target, table, condition) {
     query += ` from ${table};`;
   }
 
-  pool(query)
+  return pool(query);
 }
 
 

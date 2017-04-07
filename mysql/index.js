@@ -4,8 +4,10 @@
  * 创建者： JU
  * 时间： 17.4.7
  */
-
+var select = require('./select'),
+  insert = require('./insert');
 
 module.exports = {
-  select: 'asd'
+  select: select,
+  insert: insert
 };

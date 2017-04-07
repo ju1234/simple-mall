@@ -27,18 +27,16 @@ function mysql(sql) {
   return new Promise((res, rej) => {
     pool.getConnection((err, connection) => {
       if (err) {
-
-        console.log('mysql err', err);
+        console.log('pool err', err);
         rej(err);
       } else {
 
         connection.query(sql, (err, data) => {
           if (!err) {
             res(data);
-            console.log(data)
           }else {
             rej(err);
-            console.log('mysql err',err)
+            console.log('query err',err)
           }
         });
         connection.release();

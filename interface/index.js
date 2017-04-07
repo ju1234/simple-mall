@@ -6,14 +6,17 @@
  */
 
 var path = require('path');
+var mysql = require('../mysql');
+var API = require('../API');
 const axios = require('axios');
 
 module.exports = function (app) {
-  app.get('/asd',(req,res) => {
-    res.json({
-      name: 'asd'
-    });
+  app.get(API.GET_CLASSIFY,(req,res) => {
+    mysql.select(['*'],'classify')
+      .then( data => {
+        res.json(data)
+      })
   });
 };
 
-console.log('借口配置成功');
+console.log('接口配置成功');
