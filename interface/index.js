@@ -9,14 +9,11 @@ var path = require('path');
 const axios = require('axios');
 
 module.exports = function (app) {
-
   app.get('/asd',(req,res) => {
     res.json({
       name: 'asd'
     });
   });
-
-
 };
 
 console.log('借口配置成功');
