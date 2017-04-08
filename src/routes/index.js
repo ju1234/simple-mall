@@ -63,6 +63,11 @@ const routes = (
         cb(null, require('../View/Order/Order.js').default)
       }, 'order')
     }}/>
+    <Route path={paths.CART} getComponent={(location, cb) => {
+      require.ensure([], (require) => {
+        cb(null, require('../View/Cart/Cart.js').default)
+      }, 'cart')
+    }}/>
   </Router>
 );
 

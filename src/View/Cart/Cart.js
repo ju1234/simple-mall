@@ -1,3 +1,35 @@
 /**
- * Created by jufei on 2017/4/8.
+ * 文件说明： 购物车  页面
+ * 详细描述：
+ * 创建者： JU
+ * 时间： 17.4.8
  */
+
+
+import React, {Component} from 'react';
+//===============================================
+import Header from '../../components/Header/Header.jsx';
+import Container from '../../components/Container/Container.js';
+import Footer from '../../components/Footer/Footer.jsx';
+//===============================================
+import cartStyle from './scss/cart.scss';
+
+class Order extends Component{
+  render(){
+    return (
+      <div>
+        <Header>
+          <h3>我的购物车</h3>
+        </Header>
+        <Container>
+          <p>cart</p>
+        </Container>
+        <Footer active={[0,0,1,0]}/>
+      </div>
+    )
+  }
+}
+
+
+
+export default Order;

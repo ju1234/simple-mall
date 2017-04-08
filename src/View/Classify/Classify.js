@@ -54,7 +54,7 @@ class Classify extends Component {
 
   render() {
     return (
-      <div className={classifyStyle.classify}>
+      <div>
         <Header>
           <button onClick={this.backHandle}></button>
           <h3>{this.state.name}</h3>

@@ -54,7 +54,7 @@ class Index extends Component {
     const {banners} = this.state;
 
     return (
-      <div className={indexStyle.layout}>
+      <div>
         <Header>
           {/*<button></button>*/}
           <input placeholder="想你所想 买你所买" onClick={() => {

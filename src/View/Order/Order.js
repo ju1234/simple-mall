@@ -17,7 +17,7 @@ import orderStyle from './scss/order.scss';
 class Order extends Component{
   render(){
     return (
-      <div className={orderStyle.order}>
+      <div>
         <Header>
           <h3>我的订单</h3>
         </Header>

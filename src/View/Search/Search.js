@@ -26,7 +26,7 @@ class Search extends Component {
 
   render() {
     return (
-      <div className={searchStyle.search}>
+      <div>
         <Header>
           <button onClick={() => {
             this.context.router.push('/');

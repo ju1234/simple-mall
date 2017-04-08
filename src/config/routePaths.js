@@ -11,6 +11,7 @@ const routesPaths = {
   SYNOPSIS: '/synopsis/*',
   SEARCH: '/search',
   ORDER: '/order',
+  CART: '/cart',
   FROCK: '/classify/frock',
   MANCLOTHING: '/classify/manClothing',
   WOMENSHOES: '/classify/womenShoes',

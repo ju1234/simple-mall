@@ -43,7 +43,7 @@ class Synopsis extends Component{
 
   render(){
     return(
-      <div className={synosiStyle.synopsis}>
+      <div>
         <Header>
           <button type="button" onClick={this.backHandle}></button>
           <h3>{this.props.title || '详情'}</h3>
