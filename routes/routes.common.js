@@ -6,7 +6,7 @@
  */
 
 
-module.exports = (app,mfs,file) => {
+module.exports = (app) => {
   app.get(['/synopsis','/synopsis/'], function (req, res, next) {
     res.redirect('/');
   });
