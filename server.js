@@ -10,7 +10,8 @@ var express = require('express'),
   colors = require('colors'),
   bodyParser = require('body-parser'),
   axios = require('axios'),
-  interfaceConf = require('./interface');
+  interfaceConf = require('./interface'),
+  commonRoutes = require('./routes/routes.common.js');
 
 colors.setTheme({
   silly: 'rainbow',
@@ -39,6 +40,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 // app.get('/',(req,res) => {
 //   res.sendfile(path.resolve(__dirname, 'static/dist', 'index.html'))
 // });
+commonRoutes(app);
+
 
 if (isDeveloping) {
   console.log('开发模式启动'.info);
@@ -73,7 +76,6 @@ if (isDeveloping) {
 
   routes(app);
 }
-
 
 interfaceConf(app);
 

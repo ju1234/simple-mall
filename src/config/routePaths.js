@@ -8,7 +8,7 @@
 const routesPaths = {
   INDEX: '/',
   CLASSIFY: '/classify/:name',
-  SYNOPSIS: '/synopsis/:id',
+  SYNOPSIS: '/synopsis/*',
   FROCK: '/classify/frock',
   MANCLOTHING: '/classify/manClothing',
   WOMENSHOES: '/classify/womenShoes',
