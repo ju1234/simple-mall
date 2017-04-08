@@ -10,6 +10,7 @@ const routesPaths = {
   CLASSIFY: '/classify/:name',
   SYNOPSIS: '/synopsis/*',
   SEARCH: '/search',
+  ORDER: '/order',
   FROCK: '/classify/frock',
   MANCLOTHING: '/classify/manClothing',
   WOMENSHOES: '/classify/womenShoes',

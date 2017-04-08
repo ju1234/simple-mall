@@ -58,6 +58,11 @@ const routes = (
         cb(null, require('../View/Search/Search.js').default)
       }, 'search')
     }}/>
+    <Route path={paths.ORDER} getComponent={(location, cb) => {
+      require.ensure([], (require) => {
+        cb(null, require('../View/Order/Order.js').default)
+      }, 'order')
+    }}/>
   </Router>
 );
 
