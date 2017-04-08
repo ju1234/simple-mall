@@ -6,17 +6,18 @@
  */
 
 
-import React,{Component} from 'react';
+import React, {Component} from 'react';
 import axios from 'axios';
 //==========================================
 import Header from '../../components/Header/Header.jsx';
 import Container from '../../components/Container/Container.js';
 //==================================================================
 import classifyStyle from './scss/classify.scss';
+import getClassifyInfo from '../../tools/getClassifyInfo.js';
 
 
-class Classify extends Component{
-  constructor(props){
+class Classify extends Component {
+  constructor(props) {
     super(props);
     this.backHandle = this.backHandle.bind(this);
   }
@@ -27,27 +28,31 @@ class Classify extends Component{
 
   state = {};
 
-  componentWillMount(){
-    const pathname = location.pathname;
+  componentWillMount() {
+    const {name, id} = getClassifyInfo(location.pathname);
+    this.setState(old => {
+      return {
+        name: name,
+        id: id
+      }
+    })
   }
 
 
-
-
-  backHandle(){
+  backHandle() {
     this.context.router.push(localStorage.getItem('HISTORY'));
   }
 
-  render(){
+  render() {
     return (
       <div className={classifyStyle.classify}>
         <Header>
           <button onClick={this.backHandle}></button>
-          <h3>{localStorage.getItem('CLASSIFY_TITLE')}</h3>
+          <h3>{this.state.name}</h3>
           <button></button>
         </Header>
         <Container bottom={false}>
-          <div>asd</div>
+          <div>{this.state.id}</div>
         </Container>
       </div>
     )
