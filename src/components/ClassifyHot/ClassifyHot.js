@@ -32,20 +32,20 @@ class ClassifyHot extends Component{
         <p>{this.props.classify.name}推荐</p>
         <div>
           <div>
-            <img src="/images/38640.jpg" alt=""/>
+            <img src="/images/test.jpg" alt=""/>
           </div>
           <div>
             <div>
-              <img src="/images/38640.jpg" alt=""/>
+              <img src="/images/test.jpg" alt=""/>
             </div>
             <div>
-              <img src="/images/38640.jpg" alt=""/>
+              <img src="/images/test.jpg" alt=""/>
             </div>
             <div>
-              <img  src="/images/38640.jpg" alt=""/>
+              <img  src="/images/test.jpg" alt=""/>
             </div>
             <div>
-              <img  src="/images/38640.jpg" alt=""/>
+              <img  src="/images/test.jpg" alt=""/>
             </div>
           </div>
         </div>

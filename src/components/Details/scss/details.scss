@@ -1,0 +1,41 @@
+.details {
+  display: block;
+  height: 8.88rem;
+  margin-bottom: .0266rem;
+  margin-right: .0266rem;
+  background: #fff;
+
+  > div {
+    width: 4.96rem;
+    &:first-child{
+      height: 7.44rem;
+
+      img{
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &:last-child{
+      padding: .24rem;
+
+      p{
+        width: 100%;
+        overflow:hidden;
+        font-size: .373rem;
+        text-overflow:ellipsis;
+        white-space:nowrap;
+      }
+
+      span{
+        color: #f00;
+
+        &:last-child{
+          color: #ccc;
+          float: right;
+        }
+      }
+    }
+
+  }
+}

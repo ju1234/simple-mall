@@ -11,6 +11,7 @@ import axios from 'axios';
 //==========================================
 import Header from '../../components/Header/Header.jsx';
 import Container from '../../components/Container/Container.js';
+import Details from '../../components/Details/Details.js'
 //==================================================================
 import classifyStyle from './scss/classify.scss';
 import getClassifyInfo from '../../tools/getClassifyInfo.js';
@@ -60,7 +61,15 @@ class Classify extends Component {
           <button></button>
         </Header>
         <Container bottom={false}>
-          <div>{this.state.id}</div>
+          <div className={classifyStyle.wrapper}>
+            <Details/>
+            <Details/>
+            <Details/>
+            <Details/>
+            <Details/>
+            <Details/>
+            <Details/>
+          </div>
         </Container>
       </div>
     )
