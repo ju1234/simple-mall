@@ -39,7 +39,6 @@ class Synopsis extends Component{
   }
 
   componentDidMount(){
-    console.log(this.context.router)
   }
 
   render(){

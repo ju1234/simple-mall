@@ -7,7 +7,7 @@
 
 
 import React,{Component} from 'react';
-
+import {Link} from 'react-router';
 import TouchSlider from 'touchslider';
 //==========================================================
 
@@ -29,7 +29,9 @@ class Banner extends Component{
            this.props.banners.map( (banner,index) => {
              return (
                <li key={index}>
-                 <img src={banner.src} alt={banner.alt}/>
+                 <Link to="/synopsis/asd">
+                   <img src={banner.src} alt={banner.alt}/>
+                 </Link>
                </li>
              )
            })

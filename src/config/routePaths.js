@@ -9,6 +9,7 @@ const routesPaths = {
   INDEX: '/',
   CLASSIFY: '/classify/:name',
   SYNOPSIS: '/synopsis/*',
+  SEARCH: '/search',
   FROCK: '/classify/frock',
   MANCLOTHING: '/classify/manClothing',
   WOMENSHOES: '/classify/womenShoes',

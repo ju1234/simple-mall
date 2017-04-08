@@ -53,6 +53,11 @@ const routes = (
         cb(null, require('../View/Synopsis/Synopsis.js').default)
       }, 'synopsis')
     }}/>
+    <Route path={paths.SEARCH} getComponent={(location, cb) => {
+      require.ensure([], (require) => {
+        cb(null, require('../View/Search/Search.js').default)
+      }, 'search')
+    }}/>
   </Router>
 );
 

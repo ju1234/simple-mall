@@ -30,15 +30,19 @@ class Index extends Component {
     super(props)
   }
 
+  static contextTypes = {
+    router: React.PropTypes.object.isRequired
+  };
+
   state = {
     banners: indexConfig.banners,
     classify: []
   };
 
-  componentDidMount(){
+  componentDidMount() {
     axios.get(API.GET_CLASSIFY_Nav)
-      .then( data => {
-        this.setState( () => {
+      .then(data => {
+        this.setState(() => {
           return {
             classify: data.data
           }
@@ -50,16 +54,18 @@ class Index extends Component {
     const {banners} = this.state;
 
     return (
-        <div className={indexStyle.layout}>
+      <div className={indexStyle.layout}>
         <Header>
           {/*<button></button>*/}
-          <input placeholder="想你所想 买你所买"/>
+          <input placeholder="想你所想 买你所买" onClick={() => {
+            this.context.router.push('/search')
+          }}/>
         </Header>
         <Container>
           <Banner banners={banners}/>
           <ClassifyNav classify={this.state.classify}/>
           {
-            this.state.classify.map( (classify,index) => {
+            this.state.classify.map((classify, index) => {
               return (
                 <ClassifyHot classify={classify} key={index}/>
               )
