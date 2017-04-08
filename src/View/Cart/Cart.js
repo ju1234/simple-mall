@@ -11,6 +11,7 @@ import React, {Component} from 'react';
 import Header from '../../components/Header/Header.jsx';
 import Container from '../../components/Container/Container.js';
 import Footer from '../../components/Footer/Footer.jsx';
+import CartList from '../../components/CartList/CartList.js';
 //===============================================
 import cartStyle from './scss/cart.scss';
 
@@ -22,7 +23,7 @@ class Order extends Component{
           <h3>我的购物车</h3>
         </Header>
         <Container>
-          <p>cart</p>
+          <CartList/>
         </Container>
         <Footer active={[0,0,1,0]}/>
       </div>

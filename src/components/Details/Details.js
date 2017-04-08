@@ -23,7 +23,7 @@ class Details extends Component{
           <img src="/images/test.jpg" alt=""/>
         </div>
         <div>
-          <p>雪纺韩版显瘦时尚碎花裙子s</p>
+          <p>雪纺韩版显瘦时尚碎花裙子</p>
           <span>￥888</span>
           <span>月销888</span>
         </div>
