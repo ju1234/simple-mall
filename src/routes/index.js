@@ -6,6 +6,7 @@
  */
 import React from 'react';
 import {Router, Route, browserHistory, IndexRoute} from 'react-router';
+import paths from '../config/routePaths.js';
 
 
 // const rootRoute = {
@@ -37,13 +38,20 @@ import {Router, Route, browserHistory, IndexRoute} from 'react-router';
 
 const routes = (
   <Router history={browserHistory}>
-    <Route path='/' getComponent={(location, cb) => {
+    <Route path={paths.INDEX} getComponent={(location, cb) => {
       require.ensure([], (require) => {
         cb(null, require('../View/Index/Index').default)
       }, 'index')
-    }}>
-    </Route>
+    }}/>
+    <Route path={paths.CLASSIFY} getComponent={(location, cb) => {
+      require.ensure([], (require) => {
+        cb(null, require('../View/Classify/Classify.js').default)
+      }, 'classify')
+    }}/>
   </Router>
 );
+
+
+
 
 export default routes;

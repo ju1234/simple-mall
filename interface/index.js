@@ -11,12 +11,19 @@ var API = require('../API');
 const axios = require('axios');
 
 module.exports = function (app) {
+  // 首页导航数据
   app.get(API.GET_CLASSIFY,(req,res) => {
     mysql.select(['*'],'classify')
       .then( data => {
         res.json(data)
       })
   });
+
+  // 首页 分类 推荐
+  app.get(API.GET_CLASSIFY_HOT,(req,res) => {
+
+  })
+
 };
 
 console.log('接口配置成功');

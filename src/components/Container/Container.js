@@ -6,13 +6,20 @@
  */
 
 
-import React,{Component} from 'react';
+import React, {Component} from 'react';
 import containerStyle from './scss/container.scss';
 
-export default class Container extends Component{
-  render(){
+export default class Container extends Component {
+
+  static defaultProps = {
+    top: true,
+    bottom: true
+  };
+
+  render() {
+    const style = this.props.bottom ? containerStyle.container : containerStyle.containerNoBottom;
     return (
-      <div className={containerStyle.container}>
+      <div className={style}>
         {this.props.children}
       </div>
     )

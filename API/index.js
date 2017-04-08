@@ -5,5 +5,6 @@
 
 module.exports = {
   // 获取分类
-  GET_CLASSIFY: '/api/getClassify'
+  GET_CLASSIFY: '/api/getClassify',
+  GET_CLASSIFY_HOT: '/api/getClassifyHot'
 };

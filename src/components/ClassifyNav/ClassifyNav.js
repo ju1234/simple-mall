@@ -8,42 +8,29 @@
 
 import React, {Component} from 'react';
 import {Link} from 'react-router';
-import axios from 'axios';
 //================================================
 
 //============================================
 import classifyStyle from './scss/classify.scss'
 
-var API = require('../../../API');
 
 
 class Classify extends Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
 
-  state = {
-    classify: []
-  };
-
-  componentDidMount(){
-    axios.get(API.GET_CLASSIFY)
-      .then( data => {
-        this.setState( () => {
-          return {
-            classify: data.data
-          }
-        });
-      })
+  saveHistory(){
+    localStorage.setItem('HISTORY',location.pathname);
   }
+
 
   render() {
-    console.log(this.state);
     return (
       <div className={classifyStyle.classifyNav}>
-        {this.state.classify.map((classify, index) => {
+        {this.props.classify.map((classify, index) => {
           return (
-            <Link to={classify.url || '/'} key={index}>
+            <Link to={classify.url || '/'} key={index} onClick={this.saveHistory}>
               <div>
                 <img src={classify.src || '/images/38640.jpg'} alt={classify.name}/>
                 <p>{classify.name}</p>

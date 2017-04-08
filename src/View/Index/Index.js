@@ -7,6 +7,7 @@
 
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import axios from 'axios';
 //===================================================
 import Header from '../../components/Header/Header.jsx';
 import Footer from "../../components/Footer/Footer";
@@ -19,38 +20,51 @@ import ClassifyNav from '../../components/ClassifyNav/ClassifyNav.js';
 // 分类推荐组件
 import ClassifyHot from '../../components/ClassifyHot/ClassifyHot.js'
 //===================================================
-import indexStyle from './scss/index.scss'
+import indexStyle from './scss/index.scss';
 import indexConfig from '../../mock/indexConfig.js';
+var API = require('../../../API');
+
 
 class Index extends Component {
   constructor(props) {
     super(props)
   }
 
-  state = indexConfig;
+  state = {
+    banners: indexConfig.banners,
+    classify: []
+  };
+
+  componentDidMount(){
+    axios.get(API.GET_CLASSIFY)
+      .then( data => {
+        this.setState( () => {
+          return {
+            classify: data.data
+          }
+        });
+      })
+  }
 
   render() {
-    const {banners,classifyNav} = this.state;
+    const {banners} = this.state;
 
     return (
-      <div className={indexStyle.layout}>
+        <div className={indexStyle.layout}>
         <Header>
           {/*<button></button>*/}
           <input placeholder="想你所想 买你所买"/>
         </Header>
         <Container>
           <Banner banners={banners}/>
-          <ClassifyNav/>
-          <ClassifyHot/>
-          <ClassifyHot/>
-          <ClassifyHot/>
-          <ClassifyHot/>
-          <ClassifyHot/>
-          <ClassifyHot/>
-          <ClassifyHot/>
-          <ClassifyHot/>
-          <ClassifyHot/>
-          <ClassifyHot/>
+          <ClassifyNav classify={this.state.classify}/>
+          {
+            this.state.classify.map( (classify,index) => {
+              return (
+                <ClassifyHot classify={classify} key={index}/>
+              )
+            })
+          }
         </Container>
         <Footer/>
       </div>

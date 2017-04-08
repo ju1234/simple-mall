@@ -15,6 +15,7 @@ window.onload = (function () {
 })();
 
 
+// localStorage.setItem('HISTORY','');
 // for (var i = 0; i < 10; i++) {
 //   var div = document.createElement('div');
 //   div.style.cssText = "width: 1rem;height: 20px;background: red;float: left;border: 1px solid #333";

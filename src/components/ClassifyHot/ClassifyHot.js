@@ -5,14 +5,31 @@
  * 时间： 17.4.6
  */
 import React,{Component} from 'react';
+import axios from 'axios';
 //=================================================
 import classifyHotStyle from './scss/classifyHot.scss';
 
 class ClassifyHot extends Component{
+  constructor(props){
+    super(props)
+  }
+
+  static PropTypes = {
+    classify: React.PropTypes.array.isRequired
+  };
+
+  componentDidMount(){
+    const classifyID = this.props.classify.id;
+  }
+
+  state= {
+    classifyHot: []
+  };
+
   render(){
     return (
       <div className={classifyHotStyle.classifyHot}>
-        <p>男装推荐</p>
+        <p>{this.props.classify.name}推荐</p>
         <div>
           <div>
             <img src="/images/38640.jpg" alt=""/>

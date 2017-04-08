@@ -7,12 +7,18 @@
 
 const routesPaths = {
   INDEX: '/',
-  CONTACT: '/contact',
-  WORK: '/work',
-  OURS: '/ours'
+  CLASSIFY: '/classify/:name',
+  FROCK: '/classify/frock',
+  MANCLOTHING: '/classify/manClothing',
+  WOMENSHOES: '/classify/womenShoes',
+  MANSHOES: '/classify/manShoes',
+  LUGGAGE: '/classify/luggage',
+  TOILETRY: '/classify/toiletry',
+  SNACK: '/classify/snack',
+  AOOLIANCE: '/classify/appliance',
+  BOOKS: '/classify/books',
+  WINE: '/classify/wine',
 };
-
-// export default routesPaths;
 
 
 module.exports = routesPaths;
