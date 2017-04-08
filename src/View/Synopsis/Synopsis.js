@@ -22,7 +22,8 @@ import synosiStyle from './scss/synopsis.scss';
 
 class Synopsis extends Component{
   constructor(props){
-    super(props)
+    super(props);
+    this.backHandle = this.backHandle.bind(this);
   }
 
   static contextTypes = {
