@@ -7,11 +7,11 @@
 
 
 export default function (pathname) {
-  switch (pathname){
+  switch (pathname) {
     case '/classify/frock':
       return {
         name: '女装',
-          id: 1
+        id: 1
       };
     case '/classify/manClothing':
       return {
@@ -58,5 +58,10 @@ export default function (pathname) {
         name: '酒水',
         id: 10
       };
+    default:
+      return {
+        name: '404',
+        id: '404'
+      }
   }
 }

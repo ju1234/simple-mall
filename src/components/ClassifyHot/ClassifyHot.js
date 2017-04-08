@@ -5,6 +5,7 @@
  * 时间： 17.4.6
  */
 import React,{Component} from 'react';
+import {Link} from 'react-router';
 import axios from 'axios';
 //=================================================
 import classifyHotStyle from './scss/classifyHot.scss';
@@ -32,20 +33,30 @@ class ClassifyHot extends Component{
         <p>{this.props.classify.name}推荐</p>
         <div>
           <div>
-            <img src="/images/test.jpg" alt=""/>
+            <Link to="/synopsis/asd">
+              <img src="/images/test.jpg" alt=""/>
+            </Link>
           </div>
           <div>
             <div>
-              <img src="/images/test.jpg" alt=""/>
+              <Link to="/synopsis/asd">
+                <img src="/images/test.jpg" alt=""/>
+              </Link>
             </div>
             <div>
-              <img src="/images/test.jpg" alt=""/>
+              <Link to="/synopsis/asd">
+                <img src="/images/test.jpg" alt=""/>
+              </Link>
             </div>
             <div>
-              <img  src="/images/test.jpg" alt=""/>
+              <Link to="/synopsis/asd">
+                <img src="/images/test.jpg" alt=""/>
+              </Link>
             </div>
             <div>
-              <img  src="/images/test.jpg" alt=""/>
+              <Link to="/synopsis/asd">
+                <img src="/images/test.jpg" alt=""/>
+              </Link>
             </div>
           </div>
         </div>

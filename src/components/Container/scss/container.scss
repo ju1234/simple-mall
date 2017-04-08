@@ -3,7 +3,9 @@
   max-width: 100%;
 
   >div{
-    border-bottom: .375rem solid #eee;
+    &:not(:last-child){
+      border-bottom: .375rem solid #eee;
+    }
   }
 }
 

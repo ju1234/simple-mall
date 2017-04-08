@@ -18,7 +18,7 @@ class Details extends Component{
 
   render(){
     return (
-      <Link className={detailStyle.details}>
+      <Link className={detailStyle.details} to="/synopsis/asd">
         <div>
           <img src="/images/test.jpg" alt=""/>
         </div>

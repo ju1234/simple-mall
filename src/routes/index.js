@@ -48,6 +48,11 @@ const routes = (
         cb(null, require('../View/Classify/Classify.js').default)
       }, 'classify')
     }}/>
+    <Route path={paths.SYNOPSIS} getComponent={(location, cb) => {
+      require.ensure([], (require) => {
+        cb(null, require('../View/Synopsis/Synopsis.js').default)
+      }, 'synopsis')
+    }}/>
   </Router>
 );
 

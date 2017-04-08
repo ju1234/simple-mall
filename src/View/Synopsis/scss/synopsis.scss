@@ -1,0 +1,52 @@
+.synopsis {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.wrapper {
+  > div {
+    &:first-child {
+      width: 10rem;
+      height: 10rem;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+
+      & + div {
+        background: #fff;
+        padding: .2133rem;
+        border-bottom: .1333rem solid #eee;
+        h4 {
+          font-size: .4266rem;
+          margin-bottom: .133rem;
+
+          & + p {
+            font-size: .48rem;
+            color: #f00;
+
+            & + div {
+              color: #aaa;
+              margin-bottom: .08rem;
+            }
+          }
+        }
+
+        > div {
+          &:last-child {
+            display: flex;
+            justify-content: space-between;
+            color: #ccc;
+          }
+        }
+
+      }
+    }
+  }
+}
+
+
