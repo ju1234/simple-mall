@@ -36,7 +36,7 @@ class Index extends Component {
   };
 
   componentDidMount(){
-    axios.get(API.GET_CLASSIFY)
+    axios.get(API.GET_CLASSIFY_Nav)
       .then( data => {
         this.setState( () => {
           return {

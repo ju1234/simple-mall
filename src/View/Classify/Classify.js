@@ -14,6 +14,7 @@ import Container from '../../components/Container/Container.js';
 //==================================================================
 import classifyStyle from './scss/classify.scss';
 import getClassifyInfo from '../../tools/getClassifyInfo.js';
+import API from '../../../API'
 
 
 class Classify extends Component {
@@ -26,7 +27,11 @@ class Classify extends Component {
     router: React.PropTypes.object.isRequired
   };
 
-  state = {};
+  state = {
+    name: 'title',
+    id: 0,
+    goods: []
+  };
 
   componentWillMount() {
     const {name, id} = getClassifyInfo(location.pathname);
@@ -38,9 +43,12 @@ class Classify extends Component {
     })
   }
 
+  componentDidMount(){
+  }
+
 
   backHandle() {
-    this.context.router.push(localStorage.getItem('HISTORY'));
+    this.context.router.push('/');
   }
 
   render() {
