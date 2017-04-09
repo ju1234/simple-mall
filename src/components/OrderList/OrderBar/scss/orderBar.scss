@@ -1,0 +1,63 @@
+.orderBar {
+  border-bottom: .375rem solid #eee;
+
+  >div{
+    display: flex;
+    border-bottom: .026rem solid #ccc;
+    &:first-child{
+      padding: .32rem .126rem;
+      > div {
+        &:first-child {
+          width: 2.666rem;
+          height: 2.666rem;
+          margin-right: .266rem;
+          border: 1px solid #ccc;
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        &:last-child {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+
+          > a {
+            h4 {
+              font-size: .425rem;
+            }
+
+            + p {
+              > span {
+                color: #f00;
+                margin-right: .266rem;
+              }
+
+              + p{
+                color: #aaa;
+                text-align: right;
+              }
+
+            }
+          }
+        }
+      }
+
+      + div {
+        display: flex;
+        justify-content: flex-end;
+        padding: .126rem .126rem;
+
+        button {
+          margin-right: .1333rem;
+          padding: .08rem;
+          border: .026rem solid #ccc;
+        }
+      }
+
+    }
+  }
+}

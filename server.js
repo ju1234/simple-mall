@@ -11,7 +11,8 @@ var express = require('express'),
   bodyParser = require('body-parser'),
   axios = require('axios'),
   interfaceConf = require('./interface'),
-  commonRoutes = require('./routes/routes.common.js');
+  commonRoutes = require('./routes/routes.common.js'),
+  favicon = require('serve-favicon');
 
 colors.setTheme({
   silly: 'rainbow',
@@ -35,6 +36,7 @@ app.use('/', express.static(path.join(__dirname + '/static')));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(favicon(path.join(__dirname,'./static/images/favicon','favicon.jpg')));
 
 //
 // app.get('/',(req,res) => {
