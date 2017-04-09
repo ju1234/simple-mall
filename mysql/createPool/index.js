@@ -24,6 +24,7 @@ const pool = sql.createPool({
 
 
 function mysql(sql) {
+  console.log(sql)
   return new Promise((res, rej) => {
     pool.getConnection((err, connection) => {
       if (err) {
@@ -44,9 +45,14 @@ function mysql(sql) {
     });
   })
 }
+//
+// var data = ['女鞋','男鞋','箱包','化妆品','零食','家电','图书','茶酒'];
+// var url = ['womenShoes','manShoes','luggage','toiletry','snack','appliance','books','wine'];
+//
+//
+// for(var i = 0;i<8;i++){
+//   mysql(`create table ${url[i]} (id int primary key not null auto_increment,classify_id int not null default ${i + 3},classify_name char(20) not null default '${data[i]}',price int not null,sales int not null,comment text,url varchar(1000) not null default '/synopsis\/${url[i]}\/',src varchar(1000) not null default '/images/goods/${url[i]}/',synopsis char(50) not null);`);
+// }
 
-for (var i = 10;i<21;i++){
-  mysql(`update goods set src='/images/goods/manClothing/${i}' where id=${i};`);
-}
 
 module.exports = mysql;
