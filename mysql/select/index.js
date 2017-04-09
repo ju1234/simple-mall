@@ -18,7 +18,7 @@ function select(target, table, condition) {
       if (index === target.length - 1) {
         query += item;
       } else {
-        query += `${item},`
+        query += `${item},`;
       }
     })
   }

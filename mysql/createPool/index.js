@@ -45,4 +45,8 @@ function mysql(sql) {
   })
 }
 
+for (var i = 10;i<21;i++){
+  mysql(`update goods set src='/images/goods/manClothing/${i}' where id=${i};`);
+}
+
 module.exports = mysql;
