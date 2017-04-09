@@ -17,15 +17,16 @@ class Details extends Component{
 
 
   render(){
+    console.log(this.props)
     return (
-      <Link className={detailStyle.details} to="/synopsis/asd">
+      <Link className={detailStyle.details} to={this.props.url}>
         <div>
-          <img src="/images/test.jpg" alt=""/>
+          <img src={this.props.src} alt="预览图"/>
         </div>
         <div>
-          <p>雪纺韩版显瘦时尚碎花裙子</p>
-          <span>￥888</span>
-          <span>月销888</span>
+          <p>{this.props.synopsis}</p>
+          <span>￥{this.props.price || '**'}</span>
+          <span>月销{this.props.sales || '**'}</span>
         </div>
       </Link>
     )

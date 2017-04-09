@@ -47,12 +47,12 @@ function mysql(sql) {
 }
 //
 // var data = ['女鞋','男鞋','箱包','化妆品','零食','家电','图书','茶酒'];
-// var url = ['womenShoes','manShoes','luggage','toiletry','snack','appliance','books','wine'];
-//
-//
-// for(var i = 0;i<8;i++){
-//   mysql(`create table ${url[i]} (id int primary key not null auto_increment,classify_id int not null default ${i + 3},classify_name char(20) not null default '${data[i]}',price int not null,sales int not null,comment text,url varchar(1000) not null default '/synopsis\/${url[i]}\/',src varchar(1000) not null default '/images/goods/${url[i]}/',synopsis char(50) not null);`);
-// }
+var url = ['frock','manClothing','womenShoes','manShoes','luggage','toiletry','snack','appliance','books','wine'];
+
+
+for(var i = 0;i<10;i++){
+  mysql(`update ${url[i]} set src=concat('/images/goods/${url[i]}/',id,'.jpg');`);
+}
 
 
 module.exports = mysql;

@@ -39,12 +39,24 @@ class Classify extends Component {
     this.setState(old => {
       return {
         name: name,
-        id: id
+        id: id,
+        goods: []
       }
     })
   }
 
-  componentDidMount(){
+  componentDidMount() {
+    axios.get(API.GET_GOODS, {
+      params: {
+        classify_id: this.state.id
+      }
+    }).then( res => {
+      this.setState( () => {
+        return {
+          goods: res.data
+        }
+      })
+    })
   }
 
 
@@ -62,13 +74,11 @@ class Classify extends Component {
         </Header>
         <Container bottom={false}>
           <div className={classifyStyle.wrapper}>
-            <Details/>
-            <Details/>
-            <Details/>
-            <Details/>
-            <Details/>
-            <Details/>
-            <Details/>
+            {
+              this.state.goods.map((good, index) => {
+                return <Details {...good} key={index}/>
+              })
+            }
           </div>
         </Container>
       </div>

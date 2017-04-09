@@ -14,4 +14,8 @@ module.exports = {
 
   // 获取所有分类产品
   GET_CLASSIFY_GOODS: '/api/getClassify/goods',
+
+  // 获取商品信息
+  GET_GOODS: '/api/getGoods'
 };
+
