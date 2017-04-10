@@ -1,0 +1,32 @@
+.my {
+  padding-bottom: 1.5rem;
+
+  > div {
+    &:first-child {
+      height: 3.133rem;
+      position: relative;
+      box-shadow: insert 0 -0.08rem .8rem #ccc;
+
+      > img {
+        width: 100%;
+        height: 100%;
+      }
+
+      > div {
+        position: absolute;
+        top: calc(100% - .9335rem);
+        left: calc(50% - .9335rem);
+        img {
+          width: 1.867rem;
+          height: 1.867rem;
+          border-radius: 50%;
+        }
+      }
+    }
+
+    &:last-child {
+      height: 100px;
+      padding-top: 1rem;
+    }
+  }
+}

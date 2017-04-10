@@ -17,7 +17,14 @@ export default class My extends Component{
     return (
       <div className={myStyle.my}>
         <div>
-          
+          <img src="/images/test.jpg" alt="background"/>
+          <div>
+            <img src="/images/test.jpg" alt="avatar"/>
+          </div>
+        </div>
+        <div>
+          <p>全部订单</p>
+          <p>我的购物车</p>
         </div>
       </div>
     )
