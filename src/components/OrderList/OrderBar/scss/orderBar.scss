@@ -1,10 +1,10 @@
 .orderBar {
   border-bottom: .375rem solid #eee;
 
-  >div{
+  > div {
     display: flex;
     border-bottom: .026rem solid #ccc;
-    &:first-child{
+    &:first-child {
       padding: .32rem .126rem;
       > div {
         &:first-child {
@@ -32,13 +32,14 @@
 
             + p {
               > span {
-                color: #f00;
+                color: #f70;
                 margin-right: .266rem;
               }
 
-              + p{
+              + p {
                 color: #aaa;
                 text-align: right;
+
               }
 
             }
@@ -55,6 +56,10 @@
           margin-right: .1333rem;
           padding: .08rem;
           border: .026rem solid #ccc;
+
+          &:last-child{
+            color: red;
+          }
         }
       }
 

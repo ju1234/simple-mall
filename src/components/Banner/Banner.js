@@ -29,7 +29,7 @@ class Banner extends Component{
            this.props.banners.map( (banner,index) => {
              return (
                <li key={index}>
-                 <Link to="/synopsis/asd">
+                 <Link to="/synopsis/luggage/3">
                    <img src={banner.src} alt={banner.alt}/>
                  </Link>
                </li>

@@ -20,8 +20,8 @@ module.exports = function (app) {
   });
 
 
-  app.get(API.GET_GOODS, (req, res) => {
-    let {classify_id} = req.query;
+  app.get(API.GET_GOODS_LIST, (req, res) => {
+    let {classify_id,count} = req.query;
     let table_name;
     mysql.select(['field'],'classify',`where id=${classify_id}`)
       .then(data => {
@@ -29,8 +29,15 @@ module.exports = function (app) {
         return mysql.select(['*'],table_name);
       })
       .then( data => {
-        console.log(data);
-        res.json(data)
+        res.json(data.slice(0, count || data.length));
+      })
+  });
+
+  app.get(API.GET_GOOD,(req,res) => {
+    let {classify,id} = req.query;
+    mysql.select(['*'],classify,`where id=${id}`)
+      .then( data => {
+        res.json(data[0]);
       })
   });
 

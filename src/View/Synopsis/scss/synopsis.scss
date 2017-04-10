@@ -3,6 +3,9 @@
     &:first-child {
       width: 10rem;
       height: 10rem;
+      box-shadow: 0 .8px .8px #ccc;
+      z-index: 1;
+      position: relative;
 
       img {
         width: 100%;

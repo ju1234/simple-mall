@@ -12,6 +12,7 @@ const routesPaths = {
   SEARCH: '/search',
   ORDER: '/order',
   CART: '/cart',
+  MY: '/my',
   FROCK: '/classify/frock',
   MANCLOTHING: '/classify/manClothing',
   WOMENSHOES: '/classify/womenShoes',

@@ -34,25 +34,19 @@ class Classify extends Component {
     goods: []
   };
 
-  componentWillMount() {
-    const {name, id} = getClassifyInfo(location.pathname);
-    this.setState(old => {
-      return {
-        name: name,
-        id: id,
-        goods: []
-      }
-    })
-  }
+
 
   componentDidMount() {
-    axios.get(API.GET_GOODS, {
+    const {name, id} = getClassifyInfo(location.pathname);
+    axios.get(API.GET_GOODS_LIST, {
       params: {
-        classify_id: this.state.id
+        classify_id: id
       }
     }).then( res => {
       this.setState( () => {
         return {
+          name: name,
+          id: id,
           goods: res.data
         }
       })

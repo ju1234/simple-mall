@@ -62,6 +62,13 @@ const routes = (
             cb(null, require('../View/Cart/Cart.js').default)
           }, 'cart')
         }}/>
+
+        {/*我的主页*/}
+        <Route path='my' getComponent={(location, cb) => {
+          require.ensure([], (require) => {
+            cb(null, require('../View/My/My.js').default)
+          }, 'my')
+        }}/>
       </Route>
 
       {/*订单页*/}

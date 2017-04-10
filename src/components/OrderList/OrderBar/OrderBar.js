@@ -26,13 +26,13 @@ export default class OrderBar extends Component {
             <p>
               单价：<span>￥888</span>，共<span>n</span>件，合计<span>n</span>元
             </p>
-            <p>代发货 || 卖家已发货 ||派送中</p>
+            <p>订单状态: 已发货 || 已签收 || 代发货 || 待支付</p>
           </div>
         </div>
         <div>
-          <button>已支付</button>
-          <button>已收货</button>
-          <button>待支付</button>
+          <button>查看详情</button>
+          <button>立即支付</button>
+          <button>删除订单</button>
         </div>
       </li>
     )

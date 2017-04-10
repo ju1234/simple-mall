@@ -17,7 +17,6 @@ class Details extends Component{
 
 
   render(){
-    console.log(this.props)
     return (
       <Link className={detailStyle.details} to={this.props.url}>
         <div>

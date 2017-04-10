@@ -12,6 +12,28 @@ import footerStyle from './scss/footerStyle.scss';
 
 class Footer extends Component {
 
+  componentDidMount(){
+    if(location.pathname.indexOf('my') > 0){
+      this.setState( () => {
+        return {
+          active: [0,0,0,1]
+        }
+      })
+    }else if(location.pathname.indexOf('cart') > 0){
+      this.setState( () => {
+        return {
+          active: [0,0,1,0]
+        }
+      })
+    }else if(location.pathname.indexOf('order') > 0){
+      this.setState( () => {
+        return {
+          active: [0,1,0,0]
+        }
+      })
+    }
+  }
+
   state = {
     active: [1, 0, 0, 0]
   };
