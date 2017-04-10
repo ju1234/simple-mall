@@ -24,7 +24,7 @@ const pool = sql.createPool({
 
 
 function mysql(sql) {
-  console.log(sql)
+  console.log(sql);
   return new Promise((res, rej) => {
     pool.getConnection((err, connection) => {
       if (err) {
@@ -49,10 +49,10 @@ function mysql(sql) {
 // var data = ['女鞋','男鞋','箱包','化妆品','零食','家电','图书','茶酒'];
 var url = ['frock','manClothing','womenShoes','manShoes','luggage','toiletry','snack','appliance','books','wine'];
 
-
-for(var i = 0;i<10;i++){
-  mysql(`update ${url[i]} set src=concat('/images/goods/${url[i]}/',id,'.jpg');`);
-}
+//
+// for(var i = 0;i<10;i++){
+//   mysql(`update ${url[i]} set src=concat('/images/goods/${url[i]}/',id,'.jpg');`);
+// }
 
 
 module.exports = mysql;

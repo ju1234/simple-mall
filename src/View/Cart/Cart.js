@@ -25,7 +25,7 @@ class Order extends Component{
         <Container>
           <CartList/>
         </Container>
-        <Footer active={[0,0,1,0]}/>
+        {/*<Footer active={[0,0,1,0]}/>*/}
       </div>
     )
   }

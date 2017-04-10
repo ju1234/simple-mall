@@ -72,7 +72,7 @@ class Index extends Component {
             })
           }
         </Container>
-        <Footer active={[1,0,0,0]}/>
+        {/*<Footer active={[1,0,0,0]}/>*/}
       </div>
     )
   }

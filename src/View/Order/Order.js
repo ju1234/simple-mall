@@ -26,7 +26,7 @@ class Order extends Component{
           <OrderList/>
           <OrderList/>
         </Container>
-        <Footer active={[0,1,0,0]}/>
+        {/*<Footer active={[0,1,0,0]}/>*/}
       </div>
     )
   }
