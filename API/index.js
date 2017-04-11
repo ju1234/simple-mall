@@ -25,10 +25,17 @@ module.exports = {
   // 订单
   GET_ORDERS: '/api/getOrders',
 
+
+
   //========post==============
 
   // 登录
-  LOGIN: '/api/login'
+  LOGIN: '/api/login',
+
+
+  //===============delete==========
+  // 删除订单
+  DELETE_ORDER: '/api/delete/order',
 
 
 

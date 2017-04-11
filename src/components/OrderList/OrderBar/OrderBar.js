@@ -6,12 +6,36 @@
  */
 import React, {Component} from 'react';
 import {Link} from 'react-router';
+import axios from 'axios';
 //========================================
 import orderBarStyle from './scss/orderBar.scss';
+import API from '../../../../API';
 
 
 export default class OrderBar extends Component {
+  constructor(props){
+    super(props)
+    this.deleteHandle = this.deleteHandle.bind(this);
+  }
+
+  static contextTypes = {
+    router: React.PropTypes.object.isRequired
+  };
+
+
+  deleteHandle(){
+    axios.delete(API.DELETE_ORDER,{
+      params: {
+        id: this.props.id
+      }
+    }).then(res => {
+      console.log(res)
+    })
+  }
+
+
   render() {
+    // this.props.visibility = 0;
     const stateArr = ['待发货','已发货','已收货','待支付'];
     const state = stateArr[this.props.state - 1 ];
     const button = this.props.state === 4 ? <button>立即支付</button> : <button className={orderBarStyle.delete}>删除订单</button>;
@@ -32,6 +56,7 @@ export default class OrderBar extends Component {
           </div>
         </div>
         <div>
+          {this.props.commented ? null : <button>立即评论</button>}
           {button}
         </div>
       </li>

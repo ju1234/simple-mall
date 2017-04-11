@@ -39,7 +39,10 @@ export default class OrderList extends Component{
       <ul>
         {
           orders.map((order,index) => {
-            return <OrderBar {...order} key={index}/>
+            if(order.visibility){
+              order.index = index;
+              return <OrderBar {...order} key={index}/>
+            }
           })
         }
       </ul>

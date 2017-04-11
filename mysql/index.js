@@ -5,9 +5,11 @@
  * 时间： 17.4.7
  */
 var select = require('./select'),
-  insert = require('./insert');
+  insert = require('./insert'),
+  update = require('./update');
 
 module.exports = {
   select: select,
-  insert: insert
+  insert: insert,
+  update: update
 };

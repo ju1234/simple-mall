@@ -141,5 +141,5 @@ function insert(data, table) {
 //   },
 // ], 'classify');
 
-// module.exports = insert;
+module.exports = insert;
 
