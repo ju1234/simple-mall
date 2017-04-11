@@ -50,6 +50,8 @@ const routes = (
             cb(null, require('../View/Index/Index').default)
           }, 'index')
         }}/>
+        {/*订单页*/}
+
         <Route path='order' getComponent={(location, cb) => {
           require.ensure([], (require) => {
             cb(null, require('../View/Order/Order.js').default)
@@ -71,7 +73,6 @@ const routes = (
         }}/>
       </Route>
 
-      {/*订单页*/}
 
 
     {/*分类详情页*/}
@@ -80,6 +81,9 @@ const routes = (
         cb(null, require('../View/Classify/Classify.js').default)
       }, 'classify')
     }}/>
+
+
+
 
     {/*商品详情页*/}
     <Route path={paths.SYNOPSIS} getComponent={(location, cb) => {
@@ -93,6 +97,14 @@ const routes = (
       require.ensure([], (require) => {
         cb(null, require('../View/Search/Search.js').default)
       }, 'search')
+    }}/>
+
+
+    {/*登录页*/}
+    <Route path={paths.LOGIN} getComponent={(location, cb) => {
+      require.ensure([], (require) => {
+        cb(null, require('../View/Login/Login.js').default)
+      }, 'login')
     }}/>
 
 

@@ -6,6 +6,7 @@
  */
 
 module.exports = {
+  //=========get================
   // 获取分类导航信息
   GET_CLASSIFY_Nav: '/api/getClassify/nav',
 
@@ -19,7 +20,16 @@ module.exports = {
   GET_GOODS_LIST: '/api/getGoodsList',
 
   // 获取商品详细信息
-  GET_GOOD: '/api/getGood'
+  GET_GOOD: '/api/getGood',
+
+  // 订单
+  GET_ORDERS: '/api/getOrders',
+
+  //========post==============
+
+  // 登录
+  LOGIN: '/api/login'
+
 
 
 };

@@ -6,13 +6,21 @@
   bottom: 0;
   padding: 1.5rem 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
 
-  button{
-    padding: .2rem .4rem;
-    border: 1px solid #333;
-    border-radius: .213rem;
+  > a {
+    display: block;
+    &:first-child{
+      margin-bottom: .4rem;
+    }
+
+    > button {
+      padding: .2rem 1rem;
+      border: 1px solid #333;
+      border-radius: .213rem;
+    }
   }
 }

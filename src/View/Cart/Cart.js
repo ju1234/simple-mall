@@ -7,6 +7,7 @@
 
 
 import React, {Component} from 'react';
+import {Link} from 'react-router';
 //===============================================
 import Header from '../../components/Header/Header.jsx';
 import Container from '../../components/Container/Container.js';
@@ -36,7 +37,12 @@ class Order extends Component {
       </Container>
       : (
         <div className={cartStyle.noLogin}>
-          <button>点击登录</button>
+          <Link to="/login">
+            <button>点击登录</button>
+          </Link>
+          <Link to="/">
+            <button>点我注册</button>
+          </Link>
         </div>
       );
     return (

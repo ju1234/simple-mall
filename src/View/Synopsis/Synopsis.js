@@ -60,7 +60,7 @@ class Synopsis extends Component{
 
   render(){
     const {good} = this.state;
-    console.log(good)
+    console.log(good);
     return(
       <div>
         <Header>

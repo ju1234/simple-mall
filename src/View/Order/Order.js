@@ -7,6 +7,7 @@
 
 
 import React, {Component} from 'react';
+import {Link} from 'react-router';
 //===============================================
 import Header from '../../components/Header/Header.jsx';
 import Container from '../../components/Container/Container.js';
@@ -15,29 +16,33 @@ import OrderList from '../../components/OrderList/OrderList.js';
 //===============================================
 import orderStyle from './scss/order.scss';
 
-class Order extends Component{
+class Order extends Component {
 
   state = {
     login: false
   };
 
-  componentDidMount(){
-    this.setState( () => {
+  componentDidMount() {
+    this.setState(() => {
       return {
         login: localStorage.getItem('USER_ID') ? true : false
       }
     })
   }
 
-  render(){
+  render() {
     const content = this.state.login ?
       <Container>
         <OrderList/>
-        <OrderList/>
-      </Container>
-      : (
+      </Container> :
+      (
         <div className={orderStyle.noLogin}>
-          <button>点击登录</button>
+          <Link to="/login">
+            <button>点我登录</button>
+          </Link>
+          <Link to="/">
+            <button>点我注册</button>
+          </Link>
         </div>
       );
     return (
@@ -51,7 +56,6 @@ class Order extends Component{
     )
   }
 }
-
 
 
 export default Order;

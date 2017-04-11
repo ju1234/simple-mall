@@ -7,11 +7,23 @@
 
 
 import React,{Component} from 'react';
+import axios from 'axios';
 //========================================
 import OrderBar from './OrderBar/OrderBar.js';
-
+import API from '../../../API';
 
 export default class OrderList extends Component{
+
+  componentDidMount(){
+    axios.get(API.GET_ORDERS,{
+      params: {
+        id: localStorage.getItem('USER_ID')
+      }
+    }).then( res => {
+
+    })
+  }
+
   render(){
     return (
       <ul>

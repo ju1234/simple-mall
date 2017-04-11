@@ -13,6 +13,7 @@ const routesPaths = {
   ORDER: '/order',
   CART: '/cart',
   MY: '/my',
+  LOGIN: '/login',
   FROCK: '/classify/frock',
   MANCLOTHING: '/classify/manClothing',
   WOMENSHOES: '/classify/womenShoes',
