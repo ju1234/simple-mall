@@ -1,0 +1,7 @@
+.orderList{
+  > li {
+    &:not(:last-child){
+      border-bottom: .375rem solid #eee;
+    }
+  }
+}

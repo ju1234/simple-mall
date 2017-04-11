@@ -118,7 +118,24 @@ module.exports = function (app) {
   //===============================DELETE==========================
   app.delete(API.DELETE_ORDER,(req,res) => {
     const {id} = req.query;
-    res.json(req)
+    mysql.update({
+      visibility: 0
+    },'orders',`where id=${id}`).then( data => {
+      if(data.serverStatus === 2){
+        res.json({
+          msg: true
+        })
+      }else {
+        res.json({
+          msg: false
+        })
+      }
+    }).catch(err => {
+      console.log(err);
+      res.json({
+        msg: false
+      })
+    })
   })
 
 };

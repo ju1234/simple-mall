@@ -10,6 +10,8 @@ import React,{Component} from 'react';
 import axios from 'axios';
 //========================================
 import OrderBar from './OrderBar/OrderBar.js';
+//=========================================
+import orderListStyle from './scss/orderList.scss';
 import API from '../../../API';
 
 export default class OrderList extends Component{
@@ -36,7 +38,7 @@ export default class OrderList extends Component{
     const orders = this.state.orders;
     console.log(orders);
     return (
-      <ul>
+      <ul className={orderListStyle.orderList}>
         {
           orders.map((order,index) => {
             if(order.visibility){

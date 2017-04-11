@@ -18,8 +18,8 @@ export default class OrderBar extends Component {
     this.deleteHandle = this.deleteHandle.bind(this);
   }
 
-  static contextTypes = {
-    router: React.PropTypes.object.isRequired
+  state = {
+    visibility: 1
   };
 
 
@@ -29,7 +29,16 @@ export default class OrderBar extends Component {
         id: this.props.id
       }
     }).then(res => {
-      console.log(res)
+      console.log(res);
+      if(res.data.msg){
+        this.setState(() => {
+          return {
+            visibility: 0
+          }
+        })
+      }else {
+        alert('删除失败');
+      }
     })
   }
 
@@ -38,9 +47,9 @@ export default class OrderBar extends Component {
     // this.props.visibility = 0;
     const stateArr = ['待发货','已发货','已收货','待支付'];
     const state = stateArr[this.props.state - 1 ];
-    const button = this.props.state === 4 ? <button>立即支付</button> : <button className={orderBarStyle.delete}>删除订单</button>;
+    const button = this.props.state === 4 ? <button>立即支付</button> : <button className={orderBarStyle.delete} onClick={this.deleteHandle}>删除订单</button>;
     return (
-      <li className={orderBarStyle.orderBar}>
+      <li className={this.state.visibility ? orderBarStyle.orderBar : orderBarStyle.hidden}>
         <div>
           <div>
             <img src={this.props.src || "/images/test.jpg"} alt="商品缩略图"/>

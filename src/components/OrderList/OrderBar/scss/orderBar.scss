@@ -1,6 +1,4 @@
 .orderBar {
-  border-bottom: .375rem solid #eee;
-
   > div {
     display: flex;
     border-bottom: .026rem solid #ccc;
@@ -56,7 +54,6 @@
           margin-right: .1333rem;
           padding: .08rem;
           border: .026rem solid #ccc;
-
         }
       }
 
@@ -67,4 +64,9 @@
 
 .delete{
   color: red;
+}
+
+
+.hidden{
+  display: none;
 }
