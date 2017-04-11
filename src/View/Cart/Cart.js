@@ -15,22 +15,41 @@ import CartList from '../../components/CartList/CartList.js';
 //===============================================
 import cartStyle from './scss/cart.scss';
 
-class Order extends Component{
-  render(){
+class Order extends Component {
+
+  state = {
+    login: false
+  };
+
+  componentDidMount() {
+    this.setState(() => {
+      return {
+        login: localStorage.getItem('USER_ID') ? true : false
+      }
+    })
+  }
+
+  render() {
+    const content = this.state.login ?
+      <Container>
+        <CartList/>
+      </Container>
+      : (
+        <div className={cartStyle.noLogin}>
+          <button>点击登录</button>
+        </div>
+      );
     return (
       <div>
         <Header>
           <h3>我的购物车</h3>
         </Header>
-        <Container>
-          <CartList/>
-        </Container>
+        {content}
         {/*<Footer active={[0,0,1,0]}/>*/}
       </div>
     )
   }
 }
-
 
 
 export default Order;

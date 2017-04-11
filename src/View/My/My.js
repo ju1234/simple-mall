@@ -15,20 +15,20 @@ import myStyle from './scss/my.scss';
 export default class My extends Component {
 
   state = {
-    logined: false
+    login: false
   };
 
-  componentDidMount() {
-    this.setState(() => {
+  componentDidMount(){
+    this.setState( () => {
       return {
-        logined: localStorage.getItem('USER_ID')
+        login: localStorage.getItem('USER_ID') ? true : false
       }
     })
   }
 
 
   render() {
-    const content = !this.state.logined ?
+    const content = !this.state.login ?
       (
       <div>
         <Link to="/login">

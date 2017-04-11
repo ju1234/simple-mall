@@ -16,16 +16,36 @@ import OrderList from '../../components/OrderList/OrderList.js';
 import orderStyle from './scss/order.scss';
 
 class Order extends Component{
+
+  state = {
+    login: false
+  };
+
+  componentDidMount(){
+    this.setState( () => {
+      return {
+        login: localStorage.getItem('USER_ID') ? true : false
+      }
+    })
+  }
+
   render(){
+    const content = this.state.login ?
+      <Container>
+        <OrderList/>
+        <OrderList/>
+      </Container>
+      : (
+        <div className={orderStyle.noLogin}>
+          <button>点击登录</button>
+        </div>
+      );
     return (
       <div>
         <Header>
           <h3>我的订单</h3>
         </Header>
-        <Container>
-          <OrderList/>
-          <OrderList/>
-        </Container>
+        {content}
         {/*<Footer active={[0,1,0,0]}/>*/}
       </div>
     )

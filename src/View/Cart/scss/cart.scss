@@ -1,0 +1,18 @@
+.noLogin{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1.5rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+  button{
+    padding: .2rem .4rem;
+    border: 1px solid #333;
+    border-radius: .213rem;
+  }
+}
