@@ -38,6 +38,16 @@
           margin-bottom: .266rem;
         }
       }
+
+      > p {
+        height: 1.067rem;
+        text-align: center;
+        line-height: 1.067rem;
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        margin-bottom: .266rem;
+        color: red;
+      }
     }
   }
 }

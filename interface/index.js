@@ -43,19 +43,19 @@ module.exports = function (app) {
   });
 
   // 获取订单
-  app.get(API.GET_ORDERS,(req,res) => {
+  app.get(API.GET_ORDERS, (req, res) => {
     let orders = [];
     let successful = 0;
     const user_id = req.query.id;
-    mysql.select(['*'],'orders',`where user_id=${user_id}`)
-      .then( data => {
+    mysql.select(['*'], 'orders', `where user_id=${user_id}`)
+      .then(data => {
         orders = data;
-        orders.map( (order,index) => {
-          mysql.select(['src','price','synopsis','url'],order.classify,`where id=${order.good_id}`)
-            .then( data => {
-              orders[index] = Object.assign({},order,data[0]);
-              successful ++;
-              if(successful === 4){
+        orders.map((order, index) => {
+          mysql.select(['src', 'price', 'synopsis', 'url'], order.classify, `where id=${order.good_id}`)
+            .then(data => {
+              orders[index] = Object.assign({}, order, data[0]);
+              successful++;
+              if (successful === 4) {
                 res.json(orders);
               }
             });
@@ -76,31 +76,32 @@ module.exports = function (app) {
     console.log(username, password);
     mysql.select(['password', 'id'], 'user', `where name='${username}'`)
       .then(data => {
-        console.log(data[0].password === password);
-        if (data[0].password === password) {
-          res.json({
-            msg: true,
-            id: data[0].id
-          });
+        if (data.length !== 0) {
+          console.log(data[0].password === password);
+          if (data[0].password === password) {
+            res.json({
+              msg: true,
+              id: data[0].id
+            });
+          }
         } else {
           mysql.select(['password', 'id'], 'user', `where phone='${username}'`)
             .then(data => {
-              if (data[0].password === password) {
-                res.json({
-                  msg: true,
-                  id: data[0].id
-                })
+              if (data.length !== 0) {
+                if (data[0].password === password) {
+                  res.json({
+                    msg: true,
+                    id: data[0].id
+                  })
+                }
               } else {
                 res.json({
                   msg: false
                 })
               }
-            }).catch(() => {
-            res.json({
-              msg: false
             })
-          })
         }
+
       })
       .catch((err) => {
         console.log(err);

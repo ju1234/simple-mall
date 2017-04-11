@@ -13,6 +13,11 @@ import myStyle from './scss/my.scss';
 
 
 export default class My extends Component {
+  constructor(props){
+    super(props);
+    this.logoutHandle = this.logoutHandle.bind(this);
+  }
+
 
   state = {
     login: false
@@ -22,6 +27,15 @@ export default class My extends Component {
     this.setState( () => {
       return {
         login: localStorage.getItem('USER_ID') ? true : false
+      }
+    })
+  }
+
+  logoutHandle(){
+    localStorage.removeItem('USER_ID');
+    this.setState(() => {
+      return {
+        login: false
       }
     })
   }
@@ -52,6 +66,7 @@ export default class My extends Component {
         <Link to="/">
           <p>加入我们</p>
         </Link>
+        <p onClick={this.logoutHandle}>退出</p>
       </div>
     );
 
