@@ -45,19 +45,24 @@ module.exports = function (app) {
   // 获取订单
   app.get(API.GET_ORDERS,(req,res) => {
     let orders = [];
+    let successful = 0;
     const user_id = req.query.id;
     mysql.select(['*'],'orders',`where user_id=${user_id}`)
       .then( data => {
         orders = data;
         orders.map( (order,index) => {
-          mysql.select(['src','price','synopsis'],order.classify,`where id=${order.good_id}`)
+          mysql.select(['src','price','synopsis','url'],order.classify,`where id=${order.good_id}`)
             .then( data => {
               orders[index] = Object.assign({},order,data[0]);
-              if(index === orders.length -1 ){
-                res.json(orders)
+              successful ++;
+              if(successful === 4){
+                res.json(orders);
               }
             });
+
         })
+
+
       })
       .catch(err => {
         console.log(err)

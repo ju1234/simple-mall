@@ -12,27 +12,27 @@ import orderBarStyle from './scss/orderBar.scss';
 
 export default class OrderBar extends Component {
   render() {
+    const stateArr = ['待发货','已发货','已收货','待支付'];
+    const state = stateArr[this.props.state - 1 ];
+    const button = this.props.state === 4 ? <button>立即支付</button> : <button className={orderBarStyle.delete}>删除订单</button>;
     return (
       <li className={orderBarStyle.orderBar}>
-
         <div>
           <div>
-            <img src="/images/test.jpg" alt=""/>
+            <img src={this.props.src || "/images/test.jpg"} alt="商品缩略图"/>
           </div>
           <div>
-            <Link to="/synopsis/asd">
-              <h4>雪纺韩版显瘦时尚碎花裙子雪纺韩版显瘦时尚碎花裙子</h4>
+            <Link to={this.props.url}>
+              <h4>{this.props.synopsis}</h4>
             </Link>
             <p>
-              单价：<span>￥888</span>，共<span>n</span>件，合计<span>n</span>元
+              单价：<span>￥{this.props.price}</span>，共<span>{this.props.count}</span>件，合计<span>{this.props.price * this.props.count}</span>元
             </p>
-            <p>订单状态: 已发货 || 已签收 || 代发货 || 待支付</p>
+            <p>订单状态: {state}</p>
           </div>
         </div>
         <div>
-          <button>查看详情</button>
-          <button>立即支付</button>
-          <button>删除订单</button>
+          {button}
         </div>
       </li>
     )

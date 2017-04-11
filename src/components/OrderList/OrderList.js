@@ -14,23 +14,34 @@ import API from '../../../API';
 
 export default class OrderList extends Component{
 
+  state = {
+    orders: []
+  };
+
   componentDidMount(){
     axios.get(API.GET_ORDERS,{
       params: {
         id: localStorage.getItem('USER_ID')
       }
     }).then( res => {
-
+      this.setState(() => {
+        return {
+          orders: res.data
+        }
+      })
     })
   }
 
   render(){
+    const orders = this.state.orders;
+    console.log(orders);
     return (
       <ul>
-        <OrderBar/>
-        <OrderBar/>
-        <OrderBar/>
-        <OrderBar/>
+        {
+          orders.map((order,index) => {
+            return <OrderBar {...order} key={index}/>
+          })
+        }
       </ul>
     )
   }

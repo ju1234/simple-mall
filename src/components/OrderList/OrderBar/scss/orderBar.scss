@@ -57,12 +57,14 @@
           padding: .08rem;
           border: .026rem solid #ccc;
 
-          &:last-child{
-            color: red;
-          }
         }
       }
 
     }
   }
+}
+
+
+.delete{
+  color: red;
 }
