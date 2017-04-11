@@ -3,7 +3,7 @@
 
   > div {
     &:first-child {
-      height: 3.133rem;
+      height: 5.133rem;
       position: relative;
       box-shadow: insert 0 -0.08rem .8rem #ccc;
 
@@ -27,6 +27,17 @@
     &:last-child {
       height: 100px;
       padding-top: 1rem;
+
+      > a {
+        > p {
+          height: 1.067rem;
+          text-align: center;
+          line-height: 1.067rem;
+          border-top: 1px solid #ccc;
+          border-bottom: 1px solid #ccc;
+          margin-bottom: .266rem;
+        }
+      }
     }
   }
 }
