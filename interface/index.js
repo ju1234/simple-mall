@@ -68,7 +68,25 @@ module.exports = function (app) {
       .catch(err => {
         console.log(err)
       });
+  });
 
+
+  app.get(API.GET_MY_CART,(req,res) => {
+    const {id} = req.query;
+    let goods = []
+    mysql.select(['cart'],'user',`where id=${id}`)
+      .then( data => {
+        const length = JSON.parse(data[0].cart).length;
+        JSON.parse(data[0].cart).map( (good,index) => {
+          mysql.select(['*'],good.classify,`where id=${good.id}`)
+            .then(data => {
+              goods.push(data[0]);
+              if(index === length -1){
+                res.json(goods);
+              }
+            })
+        })
+      })
   });
 
   //==============================POST===================================

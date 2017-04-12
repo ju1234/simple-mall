@@ -25,6 +25,9 @@ module.exports = {
   // 订单
   GET_ORDERS: '/api/getOrders',
 
+  // 获取购物车
+  GET_MY_CART: '/api/get/myCart',
+
 
 
   //========post==============
