@@ -10,11 +10,11 @@ import React,{Component} from 'react';
 import axios from 'axios';
 //==============================================
 import Header from '../../components/Header/Header.jsx';
-import Container from '../../components/Container/Container.js';
+import Container from '../../components/Container/Container.jsx';
 // 购买栏
-import Paybar from '../../components/Paybar/Paybar.js';
+import Paybar from '../../components/Paybar/Paybar.jsx';
 // 评论栏
-import Comment from '../../components/Comment/Comment.js'
+import Comment from '../../components/Comment/Comment.jsx'
 //=============================================
 import synosiStyle from './scss/synopsis.scss';
 import API from '../../../API';

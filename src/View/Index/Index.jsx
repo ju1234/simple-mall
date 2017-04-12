@@ -12,13 +12,13 @@ import axios from 'axios';
 import Header from '../../components/Header/Header.jsx';
 import Footer from "../../components/Footer/Footer";
 // 容器组件
-import Container from '../../components/Container/Container.js';
+import Container from '../../components/Container/Container.jsx';
 // 广告轮播组件
-import Banner from '../../components/Banner/Banner.js';
+import Banner from '../../components/Banner/Banner.jsx';
 // 分类导航组件
-import ClassifyNav from '../../components/ClassifyNav/ClassifyNav.js';
+import ClassifyNav from '../../components/ClassifyNav/ClassifyNav.jsx';
 // 分类推荐组件
-import ClassifyHot from '../../components/ClassifyHot/ClassifyHot.js'
+import ClassifyHot from '../../components/ClassifyHot/ClassifyHot.jsx'
 //===================================================
 import indexStyle from './scss/index.scss';
 import indexConfig from '../../mock/indexConfig.js';

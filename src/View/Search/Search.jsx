@@ -9,7 +9,7 @@
 import React, {Component} from 'react';
 //===============================================
 import Header from '../../components/Header/Header.jsx';
-import Container from '../../components/Container/Container.js';
+import Container from '../../components/Container/Container.jsx';
 //===============================================
 import searchStyle from './scss/search.scss';
 

@@ -10,8 +10,8 @@ import React, {Component} from 'react';
 import axios from 'axios';
 //==========================================
 import Header from '../../components/Header/Header.jsx';
-import Container from '../../components/Container/Container.js';
-import Details from '../../components/Details/Details.js'
+import Container from '../../components/Container/Container.jsx';
+import Details from '../../components/Details/Details.jsx'
 //==================================================================
 import classifyStyle from './scss/classify.scss';
 import getClassifyInfo from '../../tools/getClassifyInfo.js';

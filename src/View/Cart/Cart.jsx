@@ -1,5 +1,5 @@
 /**
- * 文件说明： 订单页
+ * 文件说明： 购物车  页面
  * 详细描述：
  * 创建者： JU
  * 时间： 17.4.8
@@ -10,11 +10,11 @@ import React, {Component} from 'react';
 import {Link} from 'react-router';
 //===============================================
 import Header from '../../components/Header/Header.jsx';
-import Container from '../../components/Container/Container.js';
+import Container from '../../components/Container/Container.jsx';
 import Footer from '../../components/Footer/Footer.jsx';
-import OrderList from '../../components/OrderList/OrderList.js';
+import CartList from '../../components/CartList/CartList.jsx';
 //===============================================
-import orderStyle from './scss/order.scss';
+import cartStyle from './scss/cart.scss';
 
 class Order extends Component {
 
@@ -33,12 +33,12 @@ class Order extends Component {
   render() {
     const content = this.state.login ?
       <Container>
-        <OrderList/>
-      </Container> :
-      (
-        <div className={orderStyle.noLogin}>
+        <CartList/>
+      </Container>
+      : (
+        <div className={cartStyle.noLogin}>
           <Link to="/login">
-            <button>点我登录</button>
+            <button>点击登录</button>
           </Link>
           <Link to="/">
             <button>点我注册</button>
@@ -48,10 +48,10 @@ class Order extends Component {
     return (
       <div>
         <Header>
-          <h3>我的订单</h3>
+          <h3>我的购物车</h3>
         </Header>
         {content}
-        {/*<Footer active={[0,1,0,0]}/>*/}
+        {/*<Footer active={[0,0,1,0]}/>*/}
       </div>
     )
   }

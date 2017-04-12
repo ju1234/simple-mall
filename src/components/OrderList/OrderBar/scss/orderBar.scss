@@ -25,21 +25,35 @@
 
           > a {
             h4 {
+              width: 6rem;
               font-size: .425rem;
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
             }
 
             + p {
-              > span {
-                color: #f70;
-                margin-right: .266rem;
-              }
-
+              width: 6rem;
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
               + p {
-                color: #aaa;
-                text-align: right;
+                > span {
+                  color: #f70;
+                  margin-right: .266rem;
+
+                  &:last-child{
+                    font-weight: 600;
+                  }
+                }
+
+                + p {
+                  color: #aaa;
+                  text-align: right;
+
+                }
 
               }
-
             }
           }
         }

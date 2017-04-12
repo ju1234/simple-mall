@@ -9,7 +9,7 @@
 import React,{Component} from 'react';
 import axios from 'axios';
 //========================================
-import OrderBar from './OrderBar/OrderBar.js';
+import OrderBar from './OrderBar/OrderBar.jsx';
 //=========================================
 import orderListStyle from './scss/orderList.scss';
 import API from '../../../API';

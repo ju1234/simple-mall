@@ -54,21 +54,21 @@ const routes = (
 
         <Route path='order' getComponent={(location, cb) => {
           require.ensure([], (require) => {
-            cb(null, require('../View/Order/Order.js').default)
+            cb(null, require('../View/Order/Order.jsx').default)
           }, 'order')
         }}/>
 
         {/*购物车页*/}
         <Route path='cart' getComponent={(location, cb) => {
           require.ensure([], (require) => {
-            cb(null, require('../View/Cart/Cart.js').default)
+            cb(null, require('../View/Cart/Cart.jsx').default)
           }, 'cart')
         }}/>
 
         {/*我的主页*/}
         <Route path='my' getComponent={(location, cb) => {
           require.ensure([], (require) => {
-            cb(null, require('../View/My/My.js').default)
+            cb(null, require('../View/My/My.jsx').default)
           }, 'my')
         }}/>
       </Route>
@@ -78,7 +78,7 @@ const routes = (
     {/*分类详情页*/}
     <Route path={paths.CLASSIFY} getComponent={(location, cb) => {
       require.ensure([], (require) => {
-        cb(null, require('../View/Classify/Classify.js').default)
+        cb(null, require('../View/Classify/Classify.jsx').default)
       }, 'classify')
     }}/>
 
@@ -88,14 +88,14 @@ const routes = (
     {/*商品详情页*/}
     <Route path={paths.SYNOPSIS} getComponent={(location, cb) => {
       require.ensure([], (require) => {
-        cb(null, require('../View/Synopsis/Synopsis.js').default)
+        cb(null, require('../View/Synopsis/Synopsis.jsx').default)
       }, 'synopsis')
     }}/>
 
     {/*搜索页*/}
     <Route path={paths.SEARCH} getComponent={(location, cb) => {
       require.ensure([], (require) => {
-        cb(null, require('../View/Search/Search.js').default)
+        cb(null, require('../View/Search/Search.jsx').default)
       }, 'search')
     }}/>
 

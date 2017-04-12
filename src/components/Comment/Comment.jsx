@@ -7,7 +7,7 @@
 
 import React,{Component} from 'react';
 //========================================================
-import CommentBar from './CommentBar/CommentBar.js';
+import CommentBar from './CommentBar/CommentBar.jsx';
 //========================================================
 import commentStyle from './scss/comment.scss';
 

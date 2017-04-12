@@ -8,7 +8,7 @@
 
 import React,{Component} from 'react';
 //========================================
-import CartBar from './CartBar/CartBar.js';
+import CartBar from './CartBar/CartBar.jsx';
 
 
 export default class CartList extends Component{

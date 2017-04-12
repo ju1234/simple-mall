@@ -58,6 +58,7 @@ export default class OrderBar extends Component {
             <Link to={this.props.url}>
               <h4>{this.props.synopsis}</h4>
             </Link>
+            <p>收货地址: <span>asaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span></p>
             <p>
               单价：<span>￥{this.props.price}</span>，共<span>{this.props.count}</span>件，合计<span>{this.props.price * this.props.count}</span>元
             </p>
