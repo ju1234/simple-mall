@@ -7,6 +7,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router';
 import axios from 'axios';
+import moment from 'moment';
 //========================================
 import orderBarStyle from './scss/orderBar.scss';
 import API from '../../../../API';
@@ -66,8 +67,11 @@ export default class OrderBar extends Component {
           </div>
         </div>
         <div>
-          {this.props.commented ? null : <button>立即评论</button>}
-          {button}
+          <span>{moment(this.props.time).format("YYYY-M-D hh:mm:ss")}</span>
+          <div>
+            {this.props.commented ? null : <button>立即评论</button>}
+            {button}
+          </div>
         </div>
       </li>
     )

@@ -61,13 +61,18 @@
 
       + div {
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
+        align-items: center;
         padding: .126rem .126rem;
-
-        button {
-          margin-right: .1333rem;
-          padding: .08rem;
-          border: .026rem solid #ccc;
+        >span{
+          color: #ccc;
+        }
+        > div {
+          button {
+            margin-right: .1333rem;
+            padding: .08rem;
+            border: .026rem solid #ccc;
+          }
         }
       }
 

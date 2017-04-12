@@ -39,8 +39,8 @@ function insert(data, table) {
   console.log(query);
 
   pool(query);
-
 }
+
 
 // var text = ['【天猫超市】长城窖酿解百纳红酒干红葡萄酒750ml*6瓶国产整箱装',
 // '青岛啤酒爆款经典系列PK德国啤酒500ml*12听*2箱 镇店之宝',
