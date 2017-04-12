@@ -35,6 +35,9 @@ module.exports = {
   // 登录
   LOGIN: '/api/login',
 
+  // 添加购物车
+  ADD_CART: '/api/add/cart',
+
 
   //===============delete==========
   // 删除订单

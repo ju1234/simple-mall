@@ -32,12 +32,9 @@ class Synopsis extends Component{
   };
 
   state = {
-    good: {}
+    good: {},
+    addCart: true
   };
-
-  backHandle(){
-    this.context.router.goBack();
-  }
 
   componentDidMount(){
     let pathanme = location.pathname;
@@ -57,6 +54,40 @@ class Synopsis extends Component{
       })
     })
   }
+
+  backHandle(){
+    this.context.router.goBack();
+  }
+
+  addToCart(user_id = localStorage.getItem('USER_ID'),good_id = this.state.good.id,classify = this.state.good.classify_eng){
+    console.log('add');
+    console.log(user_id,good_id,classify)
+
+    axios.post(API.ADD_CART,{
+      user_id: user_id,
+      good_id: good_id,
+      classify: classify
+    }).then( res => {
+      if(res.data.msg){
+        this.setState(() => {
+          return {
+            addCart: false
+          }
+        })
+      }else {
+        alert('未知错误')
+      }
+    })
+  }
+
+  payHandle(){
+    console.log('pay')
+  }
+
+  handle = {
+    addCart: this.addToCart.bind(this),
+    pay: this.payHandle.bind(this)
+  };
 
   render(){
     const {good} = this.state;
@@ -89,7 +120,7 @@ class Synopsis extends Component{
           </div>
           <Comment count={this.state.commentCount}/>
         </Container>
-        <Paybar/>
+        <Paybar {...this.handle} canAddCart={this.state.addCart}/>
       </div>
     )
   }

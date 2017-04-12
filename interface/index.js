@@ -135,6 +135,29 @@ module.exports = function (app) {
   });
 
 
+  // 添加购物车
+  app.post(API.ADD_CART,(req,res) => {
+    const {user_id,good_id,classify} = req.body;
+    mysql.select(['cart'],'user',`where id=${user_id}`)
+      .then( data => {
+        const cart = JSON.parse(data[0].cart).concat({
+          id: good_id,
+          classify: classify
+        });
+        mysql.update({
+          cart: JSON.stringify(cart)
+        },'user',`where id=${user_id}`).then( data => {
+          res.json({
+            msg: true
+          })
+        })
+      }).catch( err => {
+        res.json({
+          msg: false
+        })
+    });
+  });
+
   //===============================DELETE==========================
   // 删除订单
   app.delete(API.DELETE_ORDER, (req, res) => {

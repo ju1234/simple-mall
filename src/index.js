@@ -11,10 +11,6 @@ import store from './redux/store'
 import {Provider} from 'react-redux';
 import routes from './routes';
 import './tools/init.js';
-
-
-
-
 render(
   <Provider store={store}>
     {routes}

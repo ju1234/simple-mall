@@ -6,16 +6,27 @@
  */
 
 
-import React,{Component} from 'react';
+import React, {Component} from 'react';
 //==========================================
 import paybarStyle from './scss/paybar.scss';
 
-class Paybar extends Component{
-  render(){
+class Paybar extends Component {
+  render() {
     return (
       <div className={paybarStyle.paybar}>
-        <button type="button">加入购物车</button>
-        <button type="button">立即购买</button>
+        <button
+          type="button"
+          onClick={() => {
+            this.props.addCart()
+          }}
+          style={{'background': this.props.canAddCart ? null : '#ccc'}}
+        >
+          加入购物车
+        </button>
+        <button type="button" onClick={() => {
+          this.props.pay()
+        }}>立即购买
+        </button>
       </div>
     )
   }
