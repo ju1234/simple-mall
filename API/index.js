@@ -40,6 +40,8 @@ module.exports = {
   // 删除订单
   DELETE_ORDER: '/api/delete/order',
 
+  // 删除购物车
+  DELETE_CART: '/api/delete/cart'
 
 
 };

@@ -4,6 +4,7 @@
   > a {
     display: flex;
     padding: .32rem .126rem;
+    border-bottom: .026rem solid #ccc;
 
     > div {
       &:first-child {
@@ -46,4 +47,24 @@
       }
     }
   }
+
+  > div {
+    padding: .126rem .126rem;
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+      margin-right: .1333rem;
+      padding: .08rem;
+      border: .026rem solid #ccc;
+
+      + button {
+        color: #f00;
+      }
+    }
+  }
+}
+
+.hidden{
+  display: none
 }

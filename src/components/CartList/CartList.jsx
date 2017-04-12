@@ -15,19 +15,34 @@ import API from '../../../API';
 
 export default class CartList extends Component{
 
+
+  state = {
+    goods: []
+  }
+
   componentDidMount(){
-    
+    axios.get(API.GET_MY_CART,{
+      params: {
+        id: localStorage.getItem('USER_ID')
+      }
+    }).then( res => {
+       this.setState( () => {
+         return {
+           goods: res.data
+         }
+       })
+    })
   }
 
   render(){
+    console.log(this.state.goods)
     return (
       <ul>
-        <CartBar/>
-        <CartBar/>
-        <CartBar/>
-        <CartBar/>
-        <CartBar/>
-        <CartBar/>
+        {
+          this.state.goods.map( (good,index) => {
+            return (<CartBar key={index} {...good}/>)
+          })
+        }
       </ul>
     )
   }

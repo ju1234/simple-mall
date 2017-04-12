@@ -70,20 +70,22 @@ module.exports = function (app) {
       });
   });
 
-
-  app.get(API.GET_MY_CART,(req,res) => {
+  // 获取我的购物车
+  app.get(API.GET_MY_CART, (req, res) => {
     const {id} = req.query;
-    let goods = []
-    mysql.select(['cart'],'user',`where id=${id}`)
-      .then( data => {
+    let goods = [];
+    mysql.select(['cart'], 'user', `where id=${id}`)
+      .then(data => {
         const length = JSON.parse(data[0].cart).length;
-        JSON.parse(data[0].cart).map( (good,index) => {
-          mysql.select(['*'],good.classify,`where id=${good.id}`)
+        JSON.parse(data[0].cart).map((good, index) => {
+          mysql.select(['*'], good.classify, `where id=${good.id}`)
             .then(data => {
               goods.push(data[0]);
-              if(index === length -1){
-                res.json(goods);
-              }
+              setTimeout(() => {
+                if (index === length - 1) {
+                  res.json(goods);
+                }
+              }, 10)
             })
         })
       })
@@ -134,16 +136,17 @@ module.exports = function (app) {
 
 
   //===============================DELETE==========================
-  app.delete(API.DELETE_ORDER,(req,res) => {
+  // 删除订单
+  app.delete(API.DELETE_ORDER, (req, res) => {
     const {id} = req.query;
     mysql.update({
       visibility: 0
-    },'orders',`where id=${id}`).then( data => {
-      if(data.serverStatus === 2){
+    }, 'orders', `where id=${id}`).then(data => {
+      if (data.serverStatus === 2) {
         res.json({
           msg: true
         })
-      }else {
+      } else {
         res.json({
           msg: false
         })
@@ -154,6 +157,45 @@ module.exports = function (app) {
         msg: false
       })
     })
+  });
+
+  // 删除购物车
+  app.delete(API.DELETE_CART, (req, res) => {
+    let pass = false;
+    const {id, good_id, classify} = req.query;
+    console.log(id,good_id,classify);
+    mysql.select(['cart'], 'user', `where id=${id}`)
+      .then(data => {
+        let cart = JSON.parse(data[0].cart);
+        cart.map((good, index) => {
+          if (good.id == good_id && good.classify === classify) {
+            console.log('suc');
+            cart.splice(index, 1);
+            mysql.update({cart: JSON.stringify(cart)}, 'user', `where id=${id}`)
+              .then(data => {
+                res.json({msg: true});
+                pass = true;
+              })
+          }
+        });
+
+        setTimeout(() => {
+          if(!pass){
+            res.json({msg: false})
+          }
+        },2000)
+      }).catch(err => {
+      console.log(err);
+      if (!pass) {
+        res.json({msg: false})
+      }
+    })
+
+    // res.json({
+    //   a: id,
+    //   b: good_id,
+    //   c: classify
+    // })
   })
 
 };
