@@ -1,3 +1,33 @@
-/**
- * Created by jufei on 2017/4/12.
- */
+  
+April 12, 2017 2:51 PM          select * from classify;  
+April 12, 2017 2:51 PM          select field from classify where id=1;  
+April 12, 2017 2:51 PM          select field from classify where id=2;  
+April 12, 2017 2:51 PM          select field from classify where id=3;  
+April 12, 2017 2:51 PM          select field from classify where id=4;  
+April 12, 2017 2:51 PM          select field from classify where id=5;  
+April 12, 2017 2:51 PM          select * from frock;  
+April 12, 2017 2:51 PM          select * from womenShoes;  
+April 12, 2017 2:51 PM          select * from luggage;  
+April 12, 2017 2:51 PM          select * from manShoes;  
+April 12, 2017 2:51 PM          select * from manClothing;  
+April 12, 2017 2:51 PM          select field from classify where id=6;  
+April 12, 2017 2:51 PM          select field from classify where id=7;  
+April 12, 2017 2:51 PM          select field from classify where id=8;  
+April 12, 2017 2:51 PM          select field from classify where id=9;  
+April 12, 2017 2:51 PM          select * from toiletry;  
+April 12, 2017 2:51 PM          select field from classify where id=10;  
+April 12, 2017 2:51 PM          select * from snack;  
+April 12, 2017 2:51 PM          select * from appliance;  
+April 12, 2017 2:51 PM          select * from books;  
+April 12, 2017 2:51 PM          select * from wine;  
+April 12, 2017 2:51 PM          select * from orders where user_id=1;  
+April 12, 2017 2:51 PM          select src,price,synopsis,url from frock where id=1;  
+April 12, 2017 2:51 PM          select src,price,synopsis,url from wine where id=6;  
+April 12, 2017 2:51 PM          select src,price,synopsis,url from manShoes where id=6;  
+April 12, 2017 2:51 PM          select src,price,synopsis,url from luggage where id=9;  
+April 12, 2017 2:52 PM          update orders set visibility=0 where id=1;  
+April 12, 2017 2:52 PM          select * from orders where user_id=1;  
+April 12, 2017 2:52 PM          select src,price,synopsis,url from frock where id=1;  
+April 12, 2017 2:52 PM          select src,price,synopsis,url from wine where id=6;  
+April 12, 2017 2:52 PM          select src,price,synopsis,url from manShoes where id=6;  
+April 12, 2017 2:52 PM          select src,price,synopsis,url from luggage where id=9;

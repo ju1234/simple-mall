@@ -5,8 +5,15 @@
  * 时间： 17.4.7
  */
 
+var recordLog = require('../log/record.log.js');
+var path = require('path');
 
 module.exports = (app) => {
+  app.get('*',(req,res,next) => {
+    recordLog(path.join(__dirname,'../log/server.log'),req.url);
+    next();
+  });
+
   app.get(['/synopsis','/synopsis/'], function (req, res, next) {
     res.redirect('/');
   });
