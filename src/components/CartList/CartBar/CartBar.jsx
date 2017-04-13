@@ -17,6 +17,11 @@ export default class CartBar extends Component{
     visibility: 1
   };
 
+  static contextTypes = {
+    router: React.PropTypes.object.isRequired
+  };
+
+
   deleteHandle(){
 
 
@@ -62,7 +67,10 @@ export default class CartBar extends Component{
           </div>
         </Link>
         <div>
-          <button>立即购买</button>
+          <button onClick={() => {
+            localStorage.setItem('PAY_INFO',JSON.stringify({id: this.props.id,classify: this.props.classify_eng}))
+            this.context.router.push('/pay');
+          }}>立即购买</button>
           <button onClick={this.deleteHandle.bind(this)}>删除选项</button>
         </div>
       </li>

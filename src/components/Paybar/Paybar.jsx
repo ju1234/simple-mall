@@ -7,11 +7,18 @@
 
 
 import React, {Component} from 'react';
+import axios from 'axios';
 //==========================================
 import paybarStyle from './scss/paybar.scss';
 
 class Paybar extends Component {
+
+  static contextTypes = {
+    router: React.PropTypes.object.isRequired
+  }
+
   render() {
+    console.log(this.props.good_id,this.props.classify)
     return (
       <div className={paybarStyle.paybar}>
         <button
@@ -24,7 +31,11 @@ class Paybar extends Component {
           加入购物车
         </button>
         <button type="button" onClick={() => {
-          this.props.pay()
+          localStorage.setItem('PAY_INFO',JSON.stringify({
+            id: this.props.good_id,
+            classify: this.props.classify
+          }))
+          this.context.router.push('/pay')
         }}>立即购买
         </button>
       </div>

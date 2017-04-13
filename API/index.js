@@ -38,6 +38,9 @@ module.exports = {
   // 添加购物车
   ADD_CART: '/api/add/cart',
 
+  // 添加订单
+  ADD_ORDER: '/api/add/order',
+
 
   //===============delete==========
   // 删除订单

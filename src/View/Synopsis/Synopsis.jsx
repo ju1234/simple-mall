@@ -120,7 +120,7 @@ class Synopsis extends Component{
           </div>
           <Comment count={this.state.commentCount}/>
         </Container>
-        <Paybar {...this.handle} canAddCart={this.state.addCart}/>
+        <Paybar {...this.handle} good_id={good.id} classify={good.classify_eng} canAddCart={this.state.addCart}/>
       </div>
     )
   }

@@ -82,6 +82,13 @@ const routes = (
       }, 'classify')
     }}/>
 
+    {/*支付页面*/}
+    <Route path={paths.PAY} getComponent={(location, cb) => {
+      require.ensure([], (require) => {
+        cb(null, require('../View/Pay/Pay.jsx').default)
+      }, 'pay')
+    }}/>
+
 
 
 
@@ -96,6 +103,13 @@ const routes = (
     <Route path={paths.SEARCH} getComponent={(location, cb) => {
       require.ensure([], (require) => {
         cb(null, require('../View/Search/Search.jsx').default)
+      }, 'search')
+    }}/>
+
+    {/*收货地址*/}
+    <Route path={paths.ADDRESS} getComponent={(location, cb) => {
+      require.ensure([], (require) => {
+        cb(null, require('../View/Address/Adderss.jsx').default)
       }, 'search')
     }}/>
 

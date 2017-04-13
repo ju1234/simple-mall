@@ -1,0 +1,21 @@
+.address {
+  p {
+    background: #fff;
+    padding: .213rem;
+    text-align: center;
+    font-size: .426rem;
+
+    &:not(:last-child){
+      border-bottom: .133rem solid #eee;
+    }
+
+    &:last-child{
+      color: orange;
+    }
+
+    button{
+      color: #f00;
+      float: right;
+    }
+  }
+}

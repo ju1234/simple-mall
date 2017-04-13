@@ -26,7 +26,7 @@ const pool = sql.createPool({
 
 
 function mysql(sql) {
-  recordLog(path.join(__dirname,'../../log/mysql.log'),sql);
+  // recordLog(path.join(__dirname,'../../log/mysql.log'),sql);
   return new Promise((res, rej) => {
     pool.getConnection((err, connection) => {
       if (err) {

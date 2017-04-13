@@ -53,11 +53,14 @@ module.exports = function (app) {
         orders = data;
         orders.map((order, index) => {
           mysql.select(['src', 'price', 'synopsis', 'url'], order.classify, `where id=${order.good_id}`)
-            .then(data => {
-              orders[index] = Object.assign({}, order, data[0]);
+            .then(dataa => {
+
+              orders[index] = Object.assign({}, order, dataa[0]);
               successful++;
-              if (successful === 4) {
-                res.json(orders);
+              if (successful === orders.length - 1) {
+                setTimeout(() => {
+                  res.json(orders);
+                },300)
               }
             });
 
@@ -136,26 +139,33 @@ module.exports = function (app) {
 
 
   // 添加购物车
-  app.post(API.ADD_CART,(req,res) => {
-    const {user_id,good_id,classify} = req.body;
-    mysql.select(['cart'],'user',`where id=${user_id}`)
-      .then( data => {
+  app.post(API.ADD_CART, (req, res) => {
+    const {user_id, good_id, classify} = req.body;
+    mysql.select(['cart'], 'user', `where id=${user_id}`)
+      .then(data => {
         const cart = JSON.parse(data[0].cart).concat({
           id: good_id,
           classify: classify
         });
         mysql.update({
           cart: JSON.stringify(cart)
-        },'user',`where id=${user_id}`).then( data => {
+        }, 'user', `where id=${user_id}`).then(data => {
           res.json({
             msg: true
           })
         })
-      }).catch( err => {
-        res.json({
-          msg: false
-        })
+      }).catch(err => {
+      res.json({
+        msg: false
+      })
     });
+  });
+
+
+  app.post(API.ADD_ORDER, (req, res) => {
+    const {user_id, good_id, classify, count} = req.body;
+    mysql.insert([req.body], 'orders');
+    res.json({msg: true})
   });
 
   //===============================DELETE==========================
@@ -186,7 +196,7 @@ module.exports = function (app) {
   app.delete(API.DELETE_CART, (req, res) => {
     let pass = false;
     const {id, good_id, classify} = req.query;
-    console.log(id,good_id,classify);
+    console.log(id, good_id, classify);
     mysql.select(['cart'], 'user', `where id=${id}`)
       .then(data => {
         let cart = JSON.parse(data[0].cart);
@@ -203,10 +213,10 @@ module.exports = function (app) {
         });
 
         setTimeout(() => {
-          if(!pass){
+          if (!pass) {
             res.json({msg: false})
           }
-        },2000)
+        }, 2000)
       }).catch(err => {
       console.log(err);
       if (!pass) {

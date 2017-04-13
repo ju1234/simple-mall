@@ -34,16 +34,16 @@ function update(target, table, condition) {
   return pool(query);
 }
 
-update({cart: JSON.stringify([
-  {
-    id: 1,
-    classify: 'frock'
-  },
-  {
-    id: 2,
-    classify: 'wine'
-  }
-])},'user','where id=1');
-
+// update({cart: JSON.stringify([
+//   {
+//     id: 1,
+//     classify: 'frock'
+//   },
+//   {
+//     id: 2,
+//     classify: 'wine'
+//   }
+// ])},'user','where id=1');
+//
 
 module.exports = update;
