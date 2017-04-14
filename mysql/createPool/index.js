@@ -23,8 +23,6 @@ const pool = sql.createPool({
 });
 
 
-
-
 function mysql(sql) {
   // recordLog(path.join(__dirname,'../../log/mysql.log'),sql);
   return new Promise((res, rej) => {
@@ -37,9 +35,9 @@ function mysql(sql) {
         connection.query(sql, (err, data) => {
           if (!err) {
             res(data);
-          }else {
+          } else {
             rej(err);
-            console.log('query err',err)
+            console.log('query err', err)
           }
         });
         connection.release();
@@ -47,14 +45,5 @@ function mysql(sql) {
     });
   })
 }
-//
-// var data = ['女鞋','男鞋','箱包','化妆品','零食','家电','图书','茶酒'];
-var url = ['frock','manClothing','womenShoes','manShoes','luggage','toiletry','snack','appliance','books','wine'];
-
-//
-// for(var i = 0;i<10;i++){
-//   mysql(`update ${url[i]} set src=concat('/images/goods/${url[i]}/',id,'.jpg');`);
-// }
-
 
 module.exports = mysql;

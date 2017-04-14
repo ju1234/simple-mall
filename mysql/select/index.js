@@ -24,16 +24,14 @@ function select(target, table, condition) {
   }
 
 
-  if(condition){
+  if (condition) {
     query += ` from ${table} ${condition};`;
-  }else {
+  } else {
     query += ` from ${table};`;
   }
 
   return pool(query);
 }
-
-
 
 
 module.exports = select;

@@ -10,6 +10,7 @@ import React,{Component} from 'react';
 import axios from 'axios';
 //========================================
 import OrderBar from './OrderBar/OrderBar.jsx';
+import NoGood from '../NoGood/NoGood.jsx';
 //=========================================
 import orderListStyle from './scss/orderList.scss';
 import API from '../../../API';
@@ -36,18 +37,23 @@ export default class OrderList extends Component{
 
   render(){
     const orders = this.state.orders;
-    console.log(orders);
-    return (
-      <ul className={orderListStyle.orderList}>
-        {
-          orders.map((order,index) => {
-            if(order.visibility){
-              order.index = index;
-              return <OrderBar {...order} key={index}/>
-            }
-          })
-        }
-      </ul>
-    )
+    let content;
+    if(orders.length === 0){
+      content = <NoGood/>
+    }else {
+      content = (
+        <ul className={orderListStyle.orderList}>
+          {
+            orders.map((order,index) => {
+              if(order.visibility){
+                order.index = index;
+                return <OrderBar {...order} key={index}/>
+              }
+            })
+          }
+        </ul>
+      )
+    }
+    return content
   }
 }

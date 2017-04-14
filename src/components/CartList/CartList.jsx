@@ -10,6 +10,8 @@ import React,{Component} from 'react';
 import axios from 'axios';
 //========================================
 import CartBar from './CartBar/CartBar.jsx';
+import NoGood from '../NoGood/NoGood.jsx';
+//=================================================
 import API from '../../../API';
 
 
@@ -18,7 +20,7 @@ export default class CartList extends Component{
 
   state = {
     goods: []
-  }
+  };
 
   componentDidMount(){
     axios.get(API.GET_MY_CART,{
@@ -35,15 +37,21 @@ export default class CartList extends Component{
   }
 
   render(){
-    console.log(this.state.goods)
-    return (
-      <ul>
-        {
-          this.state.goods.map( (good,index) => {
-            return (<CartBar key={index} {...good}/>)
-          })
-        }
-      </ul>
-    )
+    let content;
+    if(this.state.goods.length === 0){
+      content = <NoGood/>
+    }else {
+      content = (
+        <ul>
+          {
+            this.state.goods.map( (good,index) => {
+              return (<CartBar key={index} {...good}/>)
+            })
+          }
+        </ul>
+      )
+    }
+    return content
+
   }
 }

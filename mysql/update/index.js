@@ -12,11 +12,11 @@ function update(target, table, condition) {
   let query = `update ${table} set `;
   let setArr = [];
 
-  for(let key in target){
+  for (let key in target) {
     let str = `${key}=`;
-    if(typeof target[key] === 'string'){
+    if (typeof target[key] === 'string') {
       str += `'${target[key]}'`;
-    }else {
+    } else {
       str += `${target[key]}`;
     }
     setArr.push(str);
@@ -24,26 +24,14 @@ function update(target, table, condition) {
 
   query += `${setArr.join(',')} `;
 
-  if(condition){
+  if (condition) {
     query += condition;
   }
 
   query += ';';
-  console.log(query);
 
   return pool(query);
 }
 
-// update({cart: JSON.stringify([
-//   {
-//     id: 1,
-//     classify: 'frock'
-//   },
-//   {
-//     id: 2,
-//     classify: 'wine'
-//   }
-// ])},'user','where id=1');
-//
 
 module.exports = update;

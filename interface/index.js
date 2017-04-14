@@ -51,20 +51,25 @@ module.exports = function (app) {
     mysql.select(['*'], 'orders', `where user_id=${user_id}`)
       .then(data => {
         orders = data;
-        orders.map((order, index) => {
-          mysql.select(['src', 'price', 'synopsis', 'url'], order.classify, `where id=${order.good_id}`)
-            .then(dataa => {
+        if(orders.length === 0){
+          res.json(orders)
+        }else {
+          orders.map((order, index) => {
+            mysql.select(['src', 'price', 'synopsis', 'url'], order.classify, `where id=${order.good_id}`)
+              .then(dataa => {
 
-              orders[index] = Object.assign({}, order, dataa[0]);
-              successful++;
-              if (successful === orders.length - 1) {
-                setTimeout(() => {
-                  res.json(orders);
-                },300)
-              }
-            });
+                orders[index] = Object.assign({}, order, dataa[0]);
+                successful++;
+                if (successful === orders.length - 1) {
+                  setTimeout(() => {
+                    res.json(orders);
+                  },300)
+                }
+              });
 
-        })
+          })
+
+        }
 
 
       })
@@ -215,13 +220,11 @@ module.exports = function (app) {
   app.delete(API.DELETE_CART, (req, res) => {
     let pass = false;
     const {id, good_id, classify} = req.query;
-    console.log(id, good_id, classify);
     mysql.select(['cart'], 'user', `where id=${id}`)
       .then(data => {
         let cart = JSON.parse(data[0].cart);
         cart.map((good, index) => {
           if (good.id == good_id && good.classify === classify) {
-            console.log('suc');
             cart.splice(index, 1);
             mysql.update({cart: JSON.stringify(cart)}, 'user', `where id=${id}`)
               .then(data => {

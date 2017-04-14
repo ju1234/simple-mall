@@ -31,7 +31,6 @@ export default class Login extends Component {
   };
 
   submitHandle(username = this.username.value.trim(),password = this.password.value.trim()){
-    console.log(username,password)
     axios.post(API.LOGIN,{
       username: username,
       password: password
