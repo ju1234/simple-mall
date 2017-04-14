@@ -9,6 +9,8 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router';
 //==============================================
+import Footer from '../../components/Footer/Footer.jsx';
+//==============================================
 import myStyle from './scss/my.scss';
 
 
@@ -82,6 +84,7 @@ export default class My extends Component {
           </div>
         </div>
         {content}
+        <Footer active={[0,0,0,1]}/>
       </div>
     )
   }

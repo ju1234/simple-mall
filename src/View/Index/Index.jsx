@@ -57,9 +57,10 @@ class Index extends Component {
       <div>
         <Header>
           {/*<button></button>*/}
-          <input placeholder="想你所想 买你所买" onClick={() => {
-            this.context.router.push('/search')
-          }}/>
+          {/*<input placeholder="想你所想 买你所买" onClick={() => {*/}
+            {/*this.context.router.push('/search')*/}
+          {/*}}/>*/}
+          <h3>首页</h3>
         </Header>
         <Container>
           <Banner banners={banners}/>
@@ -72,7 +73,7 @@ class Index extends Component {
             })
           }
         </Container>
-        {/*<Footer active={[1,0,0,0]}/>*/}
+        <Footer active={[1,0,0,0]}/>
       </div>
     )
   }

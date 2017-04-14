@@ -40,11 +40,7 @@ const routes = (
   <Router history={browserHistory}>
 
       {/*首页*/}
-      <Route path={paths.INDEX} getComponent={(location, cb) => {
-        require.ensure([], (require) => {
-          cb(null, require('../components/Layout/Layout').default)
-        }, 'index')
-      }}>
+      <Route path={paths.INDEX} >
         <IndexRoute getComponent={(location,cb) => {
           require.ensure([], (require) => {
             cb(null, require('../View/Index/Index').default)

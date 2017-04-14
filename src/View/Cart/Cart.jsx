@@ -51,7 +51,7 @@ class Order extends Component {
           <h3>我的购物车</h3>
         </Header>
         {content}
-        {/*<Footer active={[0,0,1,0]}/>*/}
+        <Footer active={[0,0,1,0]}/>
       </div>
     )
   }
