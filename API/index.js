@@ -41,6 +41,8 @@ module.exports = {
   // 添加订单
   ADD_ORDER: '/api/add/order',
 
+  // 注册
+  REGISTER: '/api/register',
 
   //===============delete==========
   // 删除订单

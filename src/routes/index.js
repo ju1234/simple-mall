@@ -117,11 +117,17 @@ const routes = (
     {/*登录页*/}
     <Route path={paths.LOGIN} getComponent={(location, cb) => {
       require.ensure([], (require) => {
-        cb(null, require('../View/Login/Login.js').default)
+        cb(null, require('../View/Login/Login.jsx').default)
       }, 'login')
     }}/>
 
 
+    {/*注册*/}
+    <Route path={paths.REGITER} getComponent={(location, cb) => {
+      require.ensure([], (require) => {
+        cb(null, require('../View/Register/Register.jsx').default)
+      }, 'register')
+    }}/>
   </Router>
 );
 

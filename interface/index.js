@@ -162,10 +162,29 @@ module.exports = function (app) {
   });
 
 
+  // 添加订单
   app.post(API.ADD_ORDER, (req, res) => {
     const {user_id, good_id, classify, count} = req.body;
     mysql.insert([req.body], 'orders');
     res.json({msg: true})
+  });
+
+  // 注册
+  app.post(API.REGISTER,(req,res) => {
+    mysql.insert([req.body],'user')
+      .then( date => {
+        return mysql.select(['*'],'user')
+      })
+      .then( data => {
+        res.json({
+          msg: true,
+          id: data[data.length -1].id
+        })
+      })
+      .catch( err => {
+        console.log(err);
+        res.json({msg: false})
+    })
   });
 
   //===============================DELETE==========================

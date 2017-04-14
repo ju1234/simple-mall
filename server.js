@@ -30,7 +30,7 @@ colors.setTheme({
 var app = express();
 var isDeveloping = process.env.NODE_ENV === 'development';
 
-var port = isDeveloping ? 8888 : 9999;
+var port = isDeveloping ? 3333 : 9999;
 
 app.use('/', express.static(path.join(__dirname + '/static')));
 

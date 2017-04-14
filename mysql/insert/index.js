@@ -38,7 +38,7 @@ function insert(data, table) {
 
   console.log(query);
 
-  pool(query);
+  return pool(query);
 }
 
 

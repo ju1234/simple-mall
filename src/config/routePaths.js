@@ -15,6 +15,7 @@ const routesPaths = {
   MY: '/my',
   ADDRESS: '/address',
   PAY: '/pay',
+  REGITER: '/register',
   LOGIN: '/login',
   FROCK: '/classify/frock',
   MANCLOTHING: '/classify/manClothing',
