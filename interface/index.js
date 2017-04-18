@@ -51,21 +51,20 @@ module.exports = function (app) {
     mysql.select(['*'], 'orders', `where user_id=${user_id}`)
       .then(data => {
         orders = data;
-        if(orders.length === 0){
+        if (orders.length === 0) {
           res.json(orders)
-        }else {
+        } else {
           orders.map((order, index) => {
             mysql.select(['src', 'price', 'synopsis', 'url'], order.classify, `where id=${order.good_id}`)
               .then(dataa => {
-
                 orders[index] = Object.assign({}, order, dataa[0]);
                 successful++;
-                if (successful === orders.length - 1) {
+                if (successful === orders.length) {
                   setTimeout(() => {
-                    res.json(orders);
-                  },300)
+                    res.json(orders)
+                  }, 0)
                 }
-              });
+              })
 
           })
 
@@ -175,21 +174,21 @@ module.exports = function (app) {
   });
 
   // 注册
-  app.post(API.REGISTER,(req,res) => {
-    mysql.insert([req.body],'user')
-      .then( date => {
-        return mysql.select(['*'],'user')
+  app.post(API.REGISTER, (req, res) => {
+    mysql.insert([req.body], 'user')
+      .then(date => {
+        return mysql.select(['*'], 'user')
       })
-      .then( data => {
+      .then(data => {
         res.json({
           msg: true,
-          id: data[data.length -1].id
+          id: data[data.length - 1].id
         })
       })
-      .catch( err => {
+      .catch(err => {
         console.log(err);
         res.json({msg: false})
-    })
+      })
   });
 
   //===============================DELETE==========================
@@ -251,7 +250,37 @@ module.exports = function (app) {
     //   b: good_id,
     //   c: classify
     // })
+  });
+
+  app.get('/api/test', (req, res) => {
+    let data1 = [];
+    let data2 = [];
+    for (let i = 0; i < 10; i++) {
+      data1.push({
+        a: 'a' + i,
+        b: 'b' + i,
+        c: i,
+        d: i,
+        e: i
+      });
+      data2.push({
+        f: 'c' + i,
+        g: i,
+        h: i
+      })
+    }
+    const length = data1.length;
+
+    data1.map((data, index) => {
+      data1[index] = Object.assign({}, data, data2[index]);
+      if (length - 1 === index) {
+        res.json(data1)
+      }
+    })
+
+
   })
+
 
 };
 

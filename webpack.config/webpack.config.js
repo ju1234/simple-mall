@@ -22,7 +22,7 @@ var HappyPack = require('happypack'),
 
 module.exports = {
   entry: [
-    "babel-polyfill",
+    // "babel-polyfill",
     './src/index.js',
     './static/css/base.css'
   ],
