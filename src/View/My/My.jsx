@@ -71,6 +71,9 @@ export default class My extends Component {
         <Link to="/">
           <p>加入我们</p>
         </Link>
+        <Link to="/">
+          <p>商业合作</p>
+        </Link>
         <p onClick={this.logoutHandle}>退出</p>
       </div>
     );
@@ -83,7 +86,9 @@ export default class My extends Component {
             <img src="/images/test.jpg" alt="avatar"/>
           </div>
         </div>
-        {content}
+        <div>
+          {content}
+        </div>
         <Footer active={[0,0,0,1]}/>
       </div>
     )

@@ -1,5 +1,4 @@
 .my {
-  padding-bottom: 1.5rem;
 
   > div {
     &:first-child {
@@ -27,27 +26,30 @@
     &:nth-child(2) {
       height: 100px;
       padding-top: 1rem;
+      padding-bottom: 1.5rem;
 
-      > a {
-        > p {
-          height: 1.067rem;
-          text-align: center;
-          line-height: 1.067rem;
-          border-top: 1px solid #ccc;
-          border-bottom: 1px solid #ccc;
-          margin-bottom: .266rem;
-        }
-      }
+     >div{
+       > a {
+         > p {
+           height: 1.067rem;
+           text-align: center;
+           line-height: 1.067rem;
+           border-top: 1px solid #ccc;
+           border-bottom: 1px solid #ccc;
+           margin-bottom: .266rem;
+         }
+       }
 
-      > p {
-        height: 1.067rem;
-        text-align: center;
-        line-height: 1.067rem;
-        border-top: 1px solid #ccc;
-        border-bottom: 1px solid #ccc;
-        margin-bottom: .266rem;
-        color: red;
-      }
+       > p {
+         height: 1.067rem;
+         text-align: center;
+         line-height: 1.067rem;
+         border-top: 1px solid #ccc;
+         border-bottom: 1px solid #ccc;
+         margin-bottom: .266rem;
+         color: red;
+       }
+     }
     }
   }
 }
