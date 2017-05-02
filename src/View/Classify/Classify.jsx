@@ -11,7 +11,7 @@ import axios from 'axios';
 //==========================================
 import Header from '../../components/Header/Header.jsx';
 import Container from '../../components/Container/Container.jsx';
-import Details from '../../components/Details/Details.jsx'
+import Exhibition from '../../components/Details/Details.jsx'
 //==================================================================
 import classifyStyle from './scss/classify.scss';
 import getClassifyInfo from '../../tools/getClassifyInfo.js';
@@ -70,7 +70,7 @@ class Classify extends Component {
           <div className={classifyStyle.wrapper}>
             {
               this.state.goods.map((good, index) => {
-                return <Details {...good} key={index}/>
+                return <Exhibition {...good} key={index}/>
               })
             }
           </div>

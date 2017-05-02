@@ -4,6 +4,9 @@
  * 创建者： JU
  * 时间： 17.3.20
  */
+
+// require('babel-register');
+
 var express = require('express'),
   webpack = require('webpack'),
   path = require('path'),

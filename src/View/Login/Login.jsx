@@ -8,6 +8,7 @@
 
 import React, {Component} from 'react';
 import axios from 'axios';
+import {Link} from 'react-router'
 //===============================================
 import Header from '../../components/Header/Header.jsx';
 //================================================
@@ -77,7 +78,11 @@ export default class Login extends Component {
           </div>
           <div>
             <button onClick={() => {this.submitHandle()}}>登录</button>
-            <p>木有账号！！赶紧注册</p>
+            <p>
+              <Link to="register">
+                木有账号！！赶紧注册
+              </Link>
+            </p>
           </div>
         </div>
       </div>

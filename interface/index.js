@@ -4,7 +4,7 @@
  * 创建者： JU
  * 时间： 17.4.7
  */
-
+require('babel-polyfill');
 var path = require('path');
 var mysql = require('../mysql');
 var API = require('../API');
@@ -57,6 +57,7 @@ module.exports = function (app) {
           orders.map((order, index) => {
             mysql.select(['src', 'price', 'synopsis', 'url'], order.classify, `where id=${order.good_id}`)
               .then(dataa => {
+                // orders[index] = {...order,...dataa[0]};
                 orders[index] = Object.assign({}, order, dataa[0]);
                 successful++;
                 if (successful === orders.length) {
@@ -272,7 +273,8 @@ module.exports = function (app) {
     const length = data1.length;
 
     data1.map((data, index) => {
-      data1[index] = Object.assign({}, data, data2[index]);
+      // data1[index] = {...data,...data2[index]};
+      data1[index] =  Object.assign({}, data, data2[index]);
       if (length - 1 === index) {
         res.json(data1)
       }
