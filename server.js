@@ -1,4 +1,5 @@
 /**
+:q
  * 文件说明： server
  * 详细描述：
  * 创建者： JU
@@ -33,7 +34,7 @@ colors.setTheme({
 var app = express();
 var isDeveloping = process.env.NODE_ENV === 'development';
 
-var port = isDeveloping ? 3333 : 9999;
+var port = isDeveloping ? 80 : 9999;
 
 app.use('/', express.static(path.join(__dirname + '/static')));
 
