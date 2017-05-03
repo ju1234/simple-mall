@@ -5,7 +5,8 @@
   "scripts": {
     "super": "export NODE_ENV=development&& supervisor -i /src -w server.js server.js",
     "start": "export NODE_ENV=development&& node server.js",
-    "build": "export NODE_ENV=production&& webpack --config ./webpack.config/webpack.config.prod.js && node server.js"
+    "build": "export NODE_ENV=production&& webpack --config ./webpack.config/webpack.config.prod.js && node server.js",
+    "release": "node server.js"
   },
   "dependencies": {
     "axios": "^0.15.3",
