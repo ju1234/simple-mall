@@ -21,10 +21,10 @@ module.exports = function (app, cb) {
   app.get(urlArray, (req, res, next) => {
 
 
-    res.sendFile(path.resolve('./static'), '/dist/index.html');
-    console.log(path.resolve('./static'), '/dist/index.html');
+    res.sendFile(path.resolve('./static/dist/index.html'));
+    console.log(path.resolve('./static/dist/index.html'));
     // res.end('asd')
-    next()
+    // next()
   });
 
 };
