@@ -15,9 +15,9 @@ var node_modules = path.resolve(__dirname, 'node_modules');
 var pathToReact = path.resolve(node_modules, 'react/react');
 var pathToReactDOM = path.resolve(node_modules, 'react-dom/index');
 
-var HappyPack = require('happypack'),
-  os = require('os'),
-  happyThreadPool = HappyPack.ThreadPool({size: os.cpus().length});
+// var HappyPack = require('happypack'),
+//   os = require('os'),
+//   happyThreadPool = HappyPack.ThreadPool({size: os.cpus().length});
 
 
 module.exports = {
@@ -44,17 +44,25 @@ module.exports = {
       {
         test: /\.jsx?$/,
         use: [{
-          loader: 'HappyPack/loader',
+          loader: 'babel-loader',
           query: {
-            id: 'jsHappy'
-          }
+            cacheDirectory: true,
+            presets: ['babel-preset-es2015', 'babel-preset-react', 'babel-preset-stage-0'],
+            plugins: [
+              ['import', {
+                libraryName: 'antd',
+                style: 'css'
+              }]
+            ],
+          },
         }],
         exclude: /node_modules/,
       },
       {
         test: /\.css$/,
         use: new ExtractTextPlugin('/dist/[name].css').extract(['style-loader', 'css-loader', 'postcss-loader'])
-      },
+      }
+      ,
       {
         test: /\.less/,
         use: [
@@ -63,7 +71,8 @@ module.exports = {
           'postcss-loader',
           'less-loader'
         ]
-      },
+      }
+      ,
       {
         test: /\.scss$/,
         use: [
@@ -75,7 +84,8 @@ module.exports = {
           'postcss-loader',
           'sass-loader'
         ]
-      },
+      }
+      ,
       {
         test: /\.(png)|(jpg)|svg|jpeg|gif$/,
         use: {
@@ -83,8 +93,10 @@ module.exports = {
           query: {
             limit: 50000
           }
-        },
-      },
+        }
+        ,
+      }
+      ,
     ]
   },
   plugins: [
@@ -111,24 +123,26 @@ module.exports = {
           return [precss, autoprefixer];
         }
       }
-    }),
-    new HappyPack({
-      id: 'jsHappy',
-      cache: true,
-      threadPool: happyThreadPool,
-      loaders: [{
-        path: 'babel-loader',
-        query: {
-          cacheDirectory: true,
-          presets: ['babel-preset-es2015', 'babel-preset-react', 'babel-preset-stage-0'],
-          plugins: [
-            ['import', {
-              libraryName: 'antd',
-              style: 'css'
-            }]
-          ],
-        },
-      }]
-    }),
+    })
+    // ,
+    // new HappyPack({
+    //   id: 'jsHappy',
+    //   cache: true,
+    //   threadPool: happyThreadPool,
+    //   loaders: [{
+    //     path: 'babel-loader',
+    //     query: {
+    //       cacheDirectory: true,
+    //       presets: ['babel-preset-es2015', 'babel-preset-react', 'babel-preset-stage-0'],
+    //       plugins: [
+    //         ['import', {
+    //           libraryName: 'antd',
+    //           style: 'css'
+    //         }]
+    //       ],
+    //     },
+    //   }]
+    // }),
   ]
-};
+}
+;
