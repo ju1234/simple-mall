@@ -17,7 +17,7 @@ var pathToReactDOM = path.resolve(node_modules, 'react-dom/index');
 
 var HappyPack = require('happypack'),
   os = require('os'),
-  happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
+  happyThreadPool = HappyPack.ThreadPool({size: os.cpus().length});
 
 
 module.exports = {
@@ -33,10 +33,13 @@ module.exports = {
     chunkFilename: '[name].[chunkhash:8].chunk.js'
   },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
+    alias: {
+      happypack: path.resolve('./node_modules/happypack'),
+    }
   },
   module: {
-    noParse: [pathToReact,pathToReactDOM],
+    noParse: [pathToReact, pathToReactDOM],
     rules: [
       {
         test: /\.jsx?$/,
@@ -50,7 +53,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: new ExtractTextPlugin('/dist/[name].css').extract(['style-loader', 'css-loader','postcss-loader'])
+        use: new ExtractTextPlugin('/dist/[name].css').extract(['style-loader', 'css-loader', 'postcss-loader'])
       },
       {
         test: /\.less/,
