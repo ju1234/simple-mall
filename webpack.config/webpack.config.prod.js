@@ -21,9 +21,9 @@ productionConfig.plugins.push(
   new webpack.DefinePlugin({
     'process.dev.NODE_ENV': JSON.stringify('production')
   }),
-  // new PrepackWebpackPlugin({
-  //   // trace: true
-  // }),
+  new PrepackWebpackPlugin({
+    // trace: true
+  }),
   new webpack.optimize.UglifyJsPlugin({
     // sourceMap: true,
     compress: {
