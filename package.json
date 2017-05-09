@@ -5,7 +5,7 @@
   "scripts": {
     "super": "export NODE_ENV=development&& supervisor -i /src -w server.js server.js",
     "start": "export NODE_ENV=development&& node server.js",
-    "build": "export NODE_ENV=production&& webpack --config ./webpack.config/webpack.config.prod.js && node qiniu.config.js",
+    "build": "export NODE_ENV=production&& webpack --config ./webpack.config/webpack.config.prod.js",
     "release": "node server.js"
   },
   "dependencies": {
