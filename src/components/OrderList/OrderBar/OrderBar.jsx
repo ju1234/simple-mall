@@ -69,7 +69,7 @@ export default class OrderBar extends Component {
         <div>
           <span>{moment(this.props.time).format("YYYY-M-d hh:mm:ss")}</span>
           <div>
-            {this.props.commented ? null : <button>立即评论</button>}
+            {/*{this.props.commented ? null : <button>立即评论</button>}*/}
             {button}
           </div>
         </div>

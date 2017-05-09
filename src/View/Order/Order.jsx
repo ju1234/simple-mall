@@ -23,6 +23,7 @@ class Order extends Component {
   };
 
   componentDidMount() {
+    document.title = '订单';
     this.setState(() => {
       return {
         login: localStorage.getItem('USER_ID') ? true : false

@@ -37,6 +37,7 @@ class Synopsis extends Component{
   };
 
   componentDidMount(){
+
     let pathanme = location.pathname;
     const urlInfo = pathanme.split('/synopsis/')[1].split('/');
     const classify = urlInfo[0];

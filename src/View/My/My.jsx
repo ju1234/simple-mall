@@ -26,6 +26,7 @@ export default class My extends Component {
   };
 
   componentDidMount(){
+    document.title = '个人主页';
     this.setState( () => {
       return {
         login: localStorage.getItem('USER_ID') ? true : false
@@ -65,15 +66,15 @@ export default class My extends Component {
         <Link to="/address">
           <p>收货地址</p>
         </Link>
-        <Link to="/">
-          <p>联系我们</p>
-        </Link>
-        <Link to="/">
-          <p>加入我们</p>
-        </Link>
-        <Link to="/">
-          <p>商业合作</p>
-        </Link>
+        {/*<Link to="/">*/}
+          {/*<p>联系我们</p>*/}
+        {/*</Link>*/}
+        {/*<Link to="/">*/}
+          {/*<p>加入我们</p>*/}
+        {/*</Link>*/}
+        {/*<Link to="/">*/}
+          {/*<p>商业合作</p>*/}
+        {/*</Link>*/}
         <p onClick={this.logoutHandle}>退出</p>
       </div>
     );

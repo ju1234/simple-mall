@@ -16,15 +16,14 @@ const pool = sql.createPool({
   user: 'root',
   password: '',
   database: 'mall',
-  acquireTimeout: 10000,//获取到连接之前，触发超时的毫秒数（默认：10000）
-  waitForConnections: true,//当资源池没有可用连接时是否将请求加入队列（默认：  true）
-  connectionLimit: 10,//连接池最大连接数（默认：10）
-  queueLimit: 10,// 连接池没有连接可用时，队列的最大长度（默认： 0）
+  acquireTimeout: 10000,
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 10,
 });
 
 
 function mysql(sql) {
-  // recordLog(path.join(__dirname,'../../log/mysql.log'),sql);
   return new Promise((res, rej) => {
     pool.getConnection((err, connection) => {
       if (err) {

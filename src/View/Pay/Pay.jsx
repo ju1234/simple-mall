@@ -25,6 +25,10 @@ export default class Pay extends Component {
     count: 1
   };
 
+  componentDidMount(){
+    document.title = '支付';
+  }
+
   add(){
     this.setState(() => {
       return {

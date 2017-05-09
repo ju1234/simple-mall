@@ -9,18 +9,23 @@
 var baseConfig = require('./webpack.config'),
   paths = require('../paths.js'),
   webpack = require('webpack'),
-  path = require('path');
+  path = require('path'),
+  PrepackWebpackPlugin = require('prepack-webpack-plugin').default;
 
 
 var productionConfig = baseConfig;
 
+productionConfig.output.publicPath = 'om0wp96oa.bkt.clouddn.com/dist/';
 
 productionConfig.plugins.push(
   new webpack.DefinePlugin({
     'process.dev.NODE_ENV': JSON.stringify('production')
   }),
+  new PrepackWebpackPlugin({
+    // trace: true
+  }),
   new webpack.optimize.UglifyJsPlugin({
-    sourceMap: true,
+    // sourceMap: true,
     compress: {
       warnings: false
     },
@@ -28,6 +33,7 @@ productionConfig.plugins.push(
       comments: false
     }
   })
+
   // extract vendor chunks
 
 );

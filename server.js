@@ -42,10 +42,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(favicon(path.join(__dirname,'./static/images/favicon','favicon.jpg')));
 
-//
-// app.get('/',(req,res) => {
-//   res.sendfile(path.resolve(__dirname, 'static/dist', 'index.html'))
-// });
+
 commonRoutes(app);
 
 

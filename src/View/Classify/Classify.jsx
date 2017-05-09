@@ -37,6 +37,7 @@ class Classify extends Component {
 
 
   componentDidMount() {
+    document.title = '分类';
     const {name, id} = getClassifyInfo(location.pathname);
     axios.get(API.GET_GOODS_LIST, {
       params: {

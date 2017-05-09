@@ -21,13 +21,34 @@ class Adderss extends Component {
     router: React.PropTypes.object.isRequired
   };
 
+  componentDidMount(){
+    document.title = '收货地址';
+  }
+
 
   state = {
     a: true,
     b: true,
-    c: true
+    c: true,
+    address: []
+  };
+
+  addAddress(){
+    if(this.add.value !== ''){
+      this.setState({
+        address: [...this.state.address,this.add.value]
+      });
+      this.add.value = '';
+    }
   }
 
+  remove(index){
+    const newAddress = this.state.address.splice(index,1);
+    console.log(newAddress);
+    this.setState({
+      address: newAddress
+    })
+  }
 
   render() {
     return (
@@ -62,7 +83,15 @@ class Adderss extends Component {
                 }
               })
             }}>删除</button></p>
-            <p>新增收货地址</p>
+            {
+              this.state.address.map( (item,index) => {
+                return <p>{item}<button
+                  onClick={this.remove.bind(this,index)}
+                >删除</button></p>
+              })
+            }
+            <input type="text" placeholder="新增收货地址" className="input" ref={add => this.add = add}/>
+            <p onClick={this.addAddress.bind(this)}>新增收货地址</p>
           </div>
         </Container>
       </div>

@@ -40,6 +40,7 @@ class Index extends Component {
   };
 
   componentDidMount() {
+    document.title = '首页';
     axios.get(API.GET_CLASSIFY_Nav)
       .then(data => {
         this.setState(() => {
