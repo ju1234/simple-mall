@@ -56,7 +56,7 @@ function mapFilesToQiniu(dirPath = path.join(__dirname,'static')) {
           mapFilesToQiniu(path.join(dirPath,file))
         }else {
           const filePath = path.join(dirPath + '/' + file);
-          const key = filePath.split('simple-mall/')[1];
+          const key = filePath.split('simple-mall/static')[1];
           qiniuUpload(key,filePath);
         }
       })
