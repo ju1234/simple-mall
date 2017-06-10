@@ -17,7 +17,9 @@ var express = require('express'),
   interfaceConf = require('./interface'),
   commonRoutes = require('./routes/routes.common.js'),
   favicon = require('serve-favicon');
+var qs = 'qs';
 
+// 控制台输出字体颜色
 colors.setTheme({
   silly: 'rainbow',
   input: 'grey',
@@ -32,20 +34,29 @@ colors.setTheme({
 });
 
 var app = express();
+
+// 是否为开发模式
 var isDeveloping = process.env.NODE_ENV === 'development';
 
-var port = isDeveloping ? 8888 : 80;
 
+// 监听端口号
+var port = isDeveloping ? 8080 : 80;
+
+
+// 静态文件目录
 app.use('/', express.static(path.join(__dirname + '/static')));
 
+// 获取请求参数
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+
+// 设置网站图标
 app.use(favicon(path.join(__dirname,'./static/images/favicon','favicon.jpg')));
 
-
+// 挂载公共路由
 commonRoutes(app);
 
-
+// 开发模式webpack
 if (isDeveloping) {
   console.log('开发模式启动'.info);
   var config = require('./webpack.config/webpack.config.dev');
@@ -65,8 +76,6 @@ if (isDeveloping) {
   var mfs = devMiddleWare.fileSystem;
   var file = path.join(config.output.path, 'index.html');
 
-
-
   let routes = require('./routes/routes.dev.js');
   routes(app,mfs,file);
 
@@ -80,8 +89,12 @@ if (isDeveloping) {
   routes(app);
 }
 
+
+// 接口挂载
 interfaceConf(app);
 
+
+// 服务启动
 app.listen(port, (err, success) => {
   if (err) {
     console.log(err)
@@ -89,5 +102,8 @@ app.listen(port, (err, success) => {
     console.log(`server start as port ${port}`.info)
   }
 });
+
+
+
 
 

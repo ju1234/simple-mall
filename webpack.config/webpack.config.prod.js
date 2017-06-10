@@ -15,7 +15,6 @@ var baseConfig = require('./webpack.config'),
 
 var productionConfig = baseConfig;
 
-productionConfig.output.publicPath = 'om0wp96oa.bkt.clouddn.com/';
 
 productionConfig.plugins.push(
   new webpack.DefinePlugin({

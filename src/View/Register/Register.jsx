@@ -14,6 +14,8 @@ import Header from '../../components/Header/Header.jsx';
 import signUpStyle from './scss/register.scss';
 import API from '../../../API';
 
+
+
 export default class Register extends Component {
   constructor(props) {
     super(props);

@@ -6,7 +6,8 @@
     "super": "export NODE_ENV=development&& supervisor -i /src -w server.js server.js",
     "start": "export NODE_ENV=development&& node server.js",
     "build": "export NODE_ENV=production&& webpack --config ./webpack.config/webpack.config.prod.js && node qiniu.config.js",
-    "release": "node server.js"
+    "release": "node server.js",
+    "next": "next"
   },
   "dependencies": {
     "axios": "^0.15.3",
@@ -26,6 +27,7 @@
     "json-loader": "^0.5.4",
     "jsx-loader": "^0.13.2",
     "mysql": "^2.13.0",
+    "next": "^2.3.1",
     "node-sass": "^4.5.2",
     "react": "^15.4.1",
     "react-dev-utils": "^0.5.2",
